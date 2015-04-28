@@ -11,24 +11,33 @@
 
 <body>
 
-<h1> Welcome to BC's Tutoring Service! </h1>
-
-<fieldset> 
-
-	<legend> Are you a Student or a Tutor? </legend>
-	
-	I am a... <br>
-	
-	<input type = "submit" name = "student" value = "Student">
-	<input type = "submit" name = "tutor" value = "Tutor">
-	
-</fieldset>
-		
-
 <?php
-
+	welcomepage();
 ?>
 
 </body>
 
 </html>
+
+<?php
+	function welcomepage() {
+?>
+		<h1> Welcome to BC's Tutoring Service! </h1>
+<?php
+	}
+	
+	function loginpage() {
+		<fieldset> 
+?>	
+			<h3>Are You a Student or a Tutor?</h3>
+	
+			I am a... <br>
+	
+			<input type = "submit" name = "student" value = "Student">
+			<input type = "submit" name = "tutor" value = "Tutor">
+	
+		</fieldset>
+<?php
+	}
+
+?>
