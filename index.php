@@ -12,6 +12,8 @@
 <body>
 
 <?php
+
+	if 
 	welcomepage();
 	loginpage();
 ?>
@@ -31,6 +33,7 @@
 	
 	function loginpage() {
 ?>	
+		<form method = "post">
 		<fieldset> 
 			<h3>Are You a Student or a Tutor?</h3>
 	
@@ -40,6 +43,7 @@
 			<input type = "submit" name = "tutor" value = "Tutor">
 	
 		</fieldset>
+		</form> 
 <?php
 	}
 	
