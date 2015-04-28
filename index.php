@@ -54,3 +54,6 @@
 	
 		</fieldset>
 		</form> 
+<?php
+	}
+?>
