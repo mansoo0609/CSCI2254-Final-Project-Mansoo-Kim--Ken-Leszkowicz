@@ -8,7 +8,26 @@ function validatestudentsignup() {
 	var schoolvalid = validateschool();
 	var subjectsvalid = validatesubjects();
 	var availibilityvalid = validateavailability();
-	if ( namevalid && gendervalid && emailvalid && passwordvalid && addressvalid && majorvalid && schoolvalid && subjectsvalid && availibilityvalid ) {
+	var commentvalid = validatecomment();
+	if ( namevalid && gendervalid && emailvalid && passwordvalid && addressvalid && majorvalid && schoolvalid && subjectsvalid && availibilityvalid && commentvalid ) {
+		return true;
+	}
+	return false;
+}
+
+function validatetutorsignup() {
+	var namevalid = validatename();
+	var gendervalid = validategender();
+	var emailvalid = validateemail();
+	var passwordvalid = validatepassword();
+	var addressvalid = validateaddress();
+	var majorvalid = validatemajor();
+	var gradevalid = validategrade();
+	var schoolvalid = validateschool();
+	var subjectsvalid = validatesubjects();
+	var availibilityvalid = validateavailability();
+	var commentvalid = validatecomment();
+	if ( namevalid && gendervalid && emailvalid && passwordvalid && addressvalid && majorvalid && gradevalid && schoolvalid && subjectsvalid && availibilityvalid && commentvalid ) {
 		return true;
 	}
 	return false;
@@ -91,7 +110,7 @@ function validatepassword() {
 function validateaddress() {
 	var address = document.getElementById("enteredaddress").value;
 	if  ( address.trim() == "" ){
-		document.getElementById("addresserror").innerHTML  = "<font color='red'>Please input an address.</font>";
+		document.getElementById("addresserror").innerHTML  = "<font color='red'>Please enter your address.</font>";
 		return false;
 	}
 	document.getElementById("addresserror").innerHTML  = '';
@@ -101,7 +120,7 @@ function validateaddress() {
 function validatemajor() {
 	var major = document.getElementById("enteredmajor").value;
 	if  ( major.trim() == "" ){
-		document.getElementById("majorerror").innerHTML  = "<font color='red'>Please input a major.</font>";
+		document.getElementById("majorerror").innerHTML  = "<font color='red'>Please enter your major.</font>";
 		return false;
 	}
 	document.getElementById("majorerror").innerHTML  = '';
@@ -111,17 +130,27 @@ function validatemajor() {
 function validateschool() {
 	var school = document.getElementById("enteredschool").selectedIndex;
 	if  ( school == "0"  ){
-		document.getElementById("schoolerror").innerHTML  = "<font color='red'>Please choose a school.</font>";
+		document.getElementById("schoolerror").innerHTML  = "<font color='red'>Please select your school.</font>";
 		return false;
 	}
 	document.getElementById("schoolerror").innerHTML  = '';
 	return true;
 }
 
+function validategrade() {
+	var grade = document.getElementById("enteredgrade").selectedIndex;
+	if  ( grade == "0"  ){
+		document.getElementById("gradeerror").innerHTML  = "<font color='red'>Please select your grade.</font>";
+		return false;
+	}
+	document.getElementById("gradeerror").innerHTML  = '';
+	return true;
+}
+
 function validatesubjects() {
 	var subjects = document.getElementById("enteredsubjects").value;
 	if  ( subjects.trim() == "" ){
-		document.getElementById("subjectserror").innerHTML  = "<font color='red'>Please input some subjects.</font>";
+		document.getElementById("subjectserror").innerHTML  = "<font color='red'>Please enter some subjects.</font>";
 		return false;
 	}
 	document.getElementById("subjectserror").innerHTML  = '';
@@ -131,9 +160,19 @@ function validatesubjects() {
 function validateavailability() {
 	var availability = document.getElementById("enteredavail").value;
 	if  ( availability.trim() == "" ){
-		document.getElementById("availerror").innerHTML  = "<font color='red'>Please input availability times.</font>";
+		document.getElementById("availerror").innerHTML  = "<font color='red'>Please enter your usual availability times.</font>";
 		return false;
 	}
 	document.getElementById("availerror").innerHTML  = '';
+	return true;
+}
+
+function validatecomment() {
+	var comment = document.getElementById("enteredcomment").value;
+	if  ( comment.trim() == "" ){
+		document.getElementById("commenterror").innerHTML  = "<font color='red'>Please leave any relevant comments about yourself.</font>";
+		return false;
+	}
+	document.getElementById("commenterror").innerHTML  = '';
 	return true;
 }

@@ -29,8 +29,73 @@
 	function signuppagestudent() {
 ?>
 		<fieldset>
-			<legend>Student Sign-Up</legend>
+			<legend>Student Account Creation</legend>
 			<form method = "post" onsubmit="return validatestudentsignup();" action="index.php" name='studentsignup'>
+				
+				<label class="floatleft">Name:</label>
+					<input type="text" name="name" id="enteredname" />
+					<label class="floatright" id="nameerror"></label> <br>
+					
+				<label class="floatleft">Gender:</label>
+					<input type="radio" name="gender" value='male' />Male
+					<input type="radio" name="gender" value='female' />Female
+					<input type="radio" name="gender" value='other' />Other
+					<label class="floatright" id="gendererror"></label> <br>
+				
+				<label class="floatleft">Email:</label>
+					<input type="text" name="email" id="enteredemail" />
+					<label class="floatright" id="emailerror"></label> <br>
+					
+				<label class="floatleft">Password:</label>
+					<input type="password" name="password1" id="password1" />
+					<label class="floatright" id="password1error"></label> <br>
+
+				<label class="floatleft">Confirm Password:</label>
+					<input type="password" name="password2" id="password2" />
+					<label class="floatright" id="password2error"></label> <br>
+
+				<label class="floatleft">Local Address:</label>
+					<input type="text" name="address" id="enteredaddress" />
+					<label class="floatright" id="addresserror"></label> <br>
+					
+				<label class="floatleft">Major:</label>
+					<input type="text" name="Major" id="enteredmajor" />
+					<label class="floatright" id="majorerror"></label> <br>
+					
+				<label class="floatleft">School:</label>
+					<select name="school" id="enteredschool">
+					<option value="none" selected="selected">Select One</option>
+					<option value="CSOM">CSOM</option>
+					<option value="A&S">A&S</option>
+					<option value="Lynch">Lynch</option>
+					<option value="CSON">CSON</option>
+					</select>
+					<label class="floatright" id="schoolerror"></label><br>
+					
+				<label class="floatleft">Subjects:</label>
+					<input type="text" name="subjects" id="enteredsubjects" />
+					<label class="floatright" id="subjectserror"></label> <br>
+					
+				<label class="floatleft">Availability:</label>
+					<input type="text" name="availability" id="enteredavail" />
+					<label class="floatright" id="availerror"></label> <br>
+				
+				<label class="floatleft">Comment:</label><br>
+					<textarea name="comment" id="enteredcomment" style="width : 270px; height : 120px"></textarea>
+					<label class="floatright" id="commenterror"></label> <br> <br>
+				
+				<input type='submit' name='submitform' value='Create your Student Account' />
+					
+			</form>
+		</fieldset>	
+<?php
+	}
+	
+	function signuppagetutor() {
+?>
+		<fieldset>
+			<legend>Tutor Account Creation</legend>
+			<form method = "post" onsubmit="return validatetutorsignup();" action="index.php" name='studentsignup'>
 				
 				<label class="floatleft">Name:</label>
 					<input type="text" name="name" id="enteredname" />
@@ -71,6 +136,17 @@
 					<option value="****">CSON</option>
 					</select>
 					<label class="floatright" id="schoolerror"></label><br>
+				
+				<label class="floatleft">Grade:</label>
+					<select name="grade" id="enteredgrade">
+					<option value="none" selected="selected">Select One</option>
+					<option value="freshmen">Freshmen</option>
+					<option value="sophomore">Sophomore</option>
+					<option value="junior">Junior</option>
+					<option value="senior">Senior</option>
+					<option value="grad">Grad</option>					
+					</select>
+					<label class="floatright" id="gradeerror"></label><br>
 					
 				<label class="floatleft">Subjects:</label>
 					<input type="text" name="subjects" id="enteredsubjects" />
@@ -84,7 +160,7 @@
 					<textarea name="comment" id="enteredcomment" style="width : 270px; height : 120px"></textarea>
 					<label class="floatright" id="commenterror"></label> <br> <br>
 				
-				<input type='submit' name='submitform' value='Create your Student Account' />
+				<input type='submit' name='submitform' value='Create your Tutor Account' />
 					
 			</form>
 		</fieldset>	
