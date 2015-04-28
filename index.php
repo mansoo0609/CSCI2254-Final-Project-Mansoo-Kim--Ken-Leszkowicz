@@ -13,6 +13,7 @@
 
 <?php
 	welcomepage();
+	loginpage();
 ?>
 
 </body>
@@ -39,5 +40,4 @@
 		</fieldset>
 <?php
 	}
-
 ?>
