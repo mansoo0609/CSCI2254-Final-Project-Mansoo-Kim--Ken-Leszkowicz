@@ -13,9 +13,8 @@
 
 <?php
 
-	if 
 	welcomepage();
-	loginpage();
+
 ?>
 
 </body>
