@@ -27,8 +27,8 @@
 	}
 	
 	function loginpage() {
-		<fieldset> 
 ?>	
+		<fieldset> 
 			<h3>Are You a Student or a Tutor?</h3>
 	
 			I am a... <br>
