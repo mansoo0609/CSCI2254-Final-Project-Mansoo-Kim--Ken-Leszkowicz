@@ -5,6 +5,7 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Boston College Tutoring Service</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<!--<script type="text/javascript" src="js/index.js"></script>-->
 </head>
 
