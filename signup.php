@@ -9,15 +9,20 @@
 </head>
 
 <body>
+
+<?php
+
+?>
+
 </body>
 
 </html>
 
 
 
+<?php
 
-<?php	
-	function signuppage() {
+	function signuppagestudent() {
 ?>
 		<fieldset>
 			<form method = "post" onsubmit="return false;" action="">
@@ -43,6 +48,13 @@
 					<input type="text" name="email" id="password2" />
 					<label class="floatright" id="password2error"></label> <br>
 
+				<label class="floatleft">Local Address:</label>
+					<input type="text" name="address" id="enteredaddress" />
+					<label class="floatright" id="addresserror"></label> <br>
+					
+				<label class="floatleft">Major:</label>
+					<input type="text" name="Major" id="enteredmajor" />
+					<label class="floatright" id="majorerror"></label> <br>
 			</form>
 		</fieldset>	
 <?php
