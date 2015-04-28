@@ -17,6 +17,10 @@ h1,h2 {
 .floatright { 
 	display: inline-block; 
 	text-align: left; 
-	float:right;
+	float: right;
 	width: 350px; 
+}
+
+fieldset {
+	float: left;
 }

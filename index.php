@@ -52,7 +52,7 @@
 				<label class="floatleft">Select Account Type:</label>
 					<input type="radio" name="accounttype" value="student" /> Student
 					<input type="radio" name="accounttype" value="tutor" /> Tutor
-					<label class="floatright" id="accounttypeerror"></label> <br>
+					<label class="floatright" id="accounttypeerror">  </label> <br>
 				<input type='submit' name='typeselected' value='Make an Account' />
 			</form>
 		</fieldset>

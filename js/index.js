@@ -13,7 +13,3 @@ function validatetype(radio) {
 	}
 }
                   
-
-function validate() {
-	return false;
-}

@@ -11,7 +11,12 @@
 <body>
 
 <?php
-
+	if ( isset($_GET['accounttype']) )
+		if ( $_GET['accounttype'] == 'student' ) {
+			signuppagestudent();
+		} else {
+			signuppagetutor();
+		}
 ?>
 
 </body>
@@ -26,11 +31,6 @@
 ?>
 		<fieldset>
 			<form method = "post" onsubmit="return false;" action="">
-			
-				<label class="floatleft">Select Account Type:</label>
-					<input type="radio" name="accounttype" value="student" /> Student
-					<input type="radio" name="accounttype" value="tutor" /> Tutor
-					<label class="floatright" id="accounttypeerror"></label> <br>
 				
 				<label class="floatleft">Name:</label>
 					<input type="text" name="name" id="enteredname" />
