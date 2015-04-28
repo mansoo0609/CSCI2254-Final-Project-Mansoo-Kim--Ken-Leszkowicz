@@ -30,7 +30,7 @@
 ?>
 		<fieldset>
 			<legend>Student Sign-Up</legend>
-			<form method = "post" onsubmit="return false;" action="">
+			<form method = "post" onsubmit="return validategender();" action="index.php" name='studentsignup'>
 				
 				<label class="floatleft">Name:</label>
 					<input type="text" name="name" id="enteredname" />
