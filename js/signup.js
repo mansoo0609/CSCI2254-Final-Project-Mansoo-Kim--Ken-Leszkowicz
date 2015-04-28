@@ -1,5 +1,5 @@
 function validatestudentsignup() {
-	//var namevalid = validatename();
+	var namevalid = validatename();
 	var gendervalid = validategender();
 	if ( gendervalid ) {
 		return true;
@@ -17,17 +17,17 @@ function validatename() {
 		return true;
 }
 
+ 
 function validategender() {
-/* 	var gender = document.studentsignup.gender;
+	var gender = document.studentsignup.gender;
 	for (var i=0; i<gender.length; i++) {
 		if (gender[i].checked) {
 			document.getElementById("gendererror").innerHTML  = "";
 			return true;
 		}
 	}	
-	if (i==type.length) {
+	if (i==gender.length) {
 		document.getElementById("gendererror").innerHTML  = "<font color='red'>Please select a gender.</font>";
 		return false;
-	} */
-	return true;
+	}
 }
