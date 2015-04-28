@@ -24,6 +24,8 @@
 	function welcomepage() {
 ?>
 		<h1> Welcome to BC's Tutoring Service! </h1>
+		
+		<h2> We proudly announce the launch of a new website where BC tutors could meet BC students easily and efficiently! </h2>
 <?php
 	}
 	
