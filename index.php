@@ -42,4 +42,14 @@
 		</fieldset>
 <?php
 	}
+	
+	function studentLogin() {
+		
+		
+	}
+	
+	function tutorLogin() {
+		
+		
+	}
 ?>
