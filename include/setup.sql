@@ -8,8 +8,8 @@ create table studentlist (
 	localaddress varchar(50),
 	major varchar(50),
 	school enum('CSOM', 'A&S', 'Lynch', 'CSON'),
-	subjects varchar(100),
-	availability varchar(100),
+	subjects varchar(200),
+	availability varchar(1000),
 	comments varchar(4000)
 );
 
@@ -24,8 +24,8 @@ create table tutorlist (
 	major varchar(50),
 	grade enum('Freshmen', 'Sophomore', 'Junior', 'Senior'),
 	school enum('CSOM', 'A&S', 'Lynch', 'CSON'),
-	subjects varchar(100),
-	availability varchar(100),
+	subjects varchar(200),
+	availability varchar(1000),
 	rating enum ('*', '**', '***', '****', '*****'),
 	ratingcounter integer default 0,
 	comments varchar(4000)
