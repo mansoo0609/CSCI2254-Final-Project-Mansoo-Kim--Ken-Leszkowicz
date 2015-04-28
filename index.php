@@ -48,7 +48,7 @@
 	function selectaccounttype() {
 ?>
 		<fieldset>
-			<form method='get' onsubmit='return validatetype();' action='signup.php'>
+			<form method='get' onsubmit='return validatetype(accounttype);' action='signup.php'>
 				<label class="floatleft">Select Account Type:</label>
 					<input type="radio" name="accounttype" value="student" /> Student
 					<input type="radio" name="accounttype" value="tutor" /> Tutor
