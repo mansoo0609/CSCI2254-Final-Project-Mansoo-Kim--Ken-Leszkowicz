@@ -22,5 +22,5 @@ create table tutorlist (
 	subjects varchar(100),
 	availability varchar(100),
 	rating enum ('*', '**', '***', '****', '*****'),
-	ratingcounter int ()
+	ratingcounter integer default 0
 );
