@@ -47,11 +47,11 @@
 					<label class="floatright" id="emailerror"></label> <br>
 					
 				<label class="floatleft">Password:</label>
-					<input type="text" name="password" id="password1" />
+					<input type="password" name="password1" id="password1" />
 					<label class="floatright" id="password1error"></label> <br>
 
 				<label class="floatleft">Confirm Password:</label>
-					<input type="text" name="email" id="password2" />
+					<input type="password" name="password2" id="password2" />
 					<label class="floatright" id="password2error"></label> <br>
 
 				<label class="floatleft">Local Address:</label>
