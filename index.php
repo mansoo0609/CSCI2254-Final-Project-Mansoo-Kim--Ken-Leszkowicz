@@ -63,16 +63,28 @@
 ?>
 		<fieldset>
 			<form method = "post" onsubmit="return false;" action="">
-				Select Account Type: <input type='radio' name='accounttype' value='student' /> Student
-									<input type='radio' name='accounttype' value='tutor' /> Tutor
-									<div id="accounttypeerror"></div>
-				Enter Your Name: <input type='text' name='name' id='enteredname' />
-				<div id="nameerror"></div>
-				Enter Your Email: <input type='text' name='email' id='enteredemail' />
-				<div id="emailerror"></div>
-				Choose your Password: <input type='password' name='password1' id='password1' /> <br>
-				Confirm your Password: <input type='password' name='password2' id='password2' />
-				<div id="passworderror"></div>
+			
+				<label class="floatleft">Select Account Type:</label>
+					<input type="radio" name="accounttype" value="student" /> Student
+					<input type="radio" name="accounttype" value="tutor" /> Tutor
+					<label class="floatright" id="accounttypeerror"></label> <br>
+				
+				<label class="floatleft">Name:</label>
+					<input type="text" name="name" id="enteredname" />
+					<label class="floatright" id="nameerror"></label> <br>
+				
+				<label class="floatleft">Email:</label>
+					<input type="text" name="email" id="enteredemail" />
+					<label class="floatright" id="emailerror"></label> <br>
+					
+				<label class="floatleft">Password:</label>
+					<input type="text" name="password" id="password1" />
+					<label class="floatright" id="password1error"></label> <br>
+
+				<label class="floatleft">Confirm Password:</label>
+					<input type="text" name="email" id="password2" />
+					<label class="floatright" id="password2error"></label> <br>
+
 			</form>
 		</fieldset>	
 <?php

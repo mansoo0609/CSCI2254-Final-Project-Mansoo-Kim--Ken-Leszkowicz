@@ -7,3 +7,16 @@ body {
 h1,h2 {
 	color: #A3D1FF;
 }
+
+.floatleft { 
+	display: inline-block; 
+	text-align: left; 
+	width: 150px;
+}
+
+.floatright { 
+	display: inline-block; 
+	text-align: left; 
+	float:right;
+	width: 350px; 
+}
