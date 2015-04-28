@@ -45,11 +45,12 @@
 		<form method = "post">
 		<fieldset> 
 			<h3>Are You a Student or a Tutor?</h3>
-	
-			I am a... <br>
-	
-			<input type = "submit" name = "student" value = "Student">
-			<input type = "submit" name = "tutor" value = "Tutor">
+			Student <input type = "radio" name = "type" value = "student">
+			Tutor <input type = "radio" name = "type" value = "tutor"> <br>
+
+			Enter your username and password <br>
+			<input type = "text" name = "user" value = ""> <br>
+			<input type = "password" name = "pass" value = ""> <br>
 	
 		</fieldset>
 		</form> 
