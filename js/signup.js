@@ -3,6 +3,7 @@ function validatestudentsignup() {
 	var gendervalid = validategender();
 	var emailvalid = validateemail();
 	var passwordvalid = validatepassword();
+	//var phonevalid = validatephone();
 	var addressvalid = validateaddress();
 	var majorvalid = validatemajor();
 	var schoolvalid = validateschool();
