@@ -216,7 +216,7 @@ function addStudent() {
 	$result2 = mysqli_query($dbc, $sql) ; 
 	
 	echo "Account was created! <br> \n\n 
-		  <a href = 'login.php'> Go to the log in page! </a> <br><br>\n\n
+		  <a href = 'index.php?login=Login+with+your+ID'> Go to the log in page! </a> <br><br>\n\n
 		  <body></html>";
 }
 
@@ -249,7 +249,7 @@ function addTutor() {
 	$result2 = mysqli_query($dbc, $sql) ; 
 	
 	echo "Account was created! <br> \n\n 
-		  <a href = 'login.php'> Go to the log in page! </a> <br><br>\n\n
+		  <a href = 'index.php?login=Login+with+your+ID'> Go to the log in page! </a> <br><br>\n\n
 		  <body></html>";
 }
 ?>
