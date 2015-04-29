@@ -59,7 +59,7 @@
 					<label class="floatright" id="password2error"></label> <br>
 
 				<label class ="floatleft">Phone Number:</label> 
-					<input type ="text" name = "phone" id="phone"/>
+					<input type ="text" name = "phone" id="enteredphone"/>
 					<label class = "floatright" id ="phoneerror"></label> <br>
 					
 				<label class="floatleft">Local Address:</label>
@@ -127,7 +127,11 @@
 				<label class="floatleft">Confirm Password:</label>
 					<input type="password" name="password2" id="password2" />
 					<label class="floatright" id="password2error"></label> <br>
-
+					
+				<label class ="floatleft">Phone Number:</label> 
+					<input type ="text" name = "phone" id="enteredphone"/>
+					<label class = "floatright" id ="phoneerror"></label> <br>
+					
 				<label class="floatleft">Local Address:</label>
 					<input type="text" name="address" id="enteredaddress" />
 					<label class="floatright" id="addresserror"></label> <br>
