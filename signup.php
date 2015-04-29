@@ -106,7 +106,7 @@ include ('database/dbconn.php');
 	
 	function signuppagetutor() {
 		if(isset($_POST['submitformT'])){
-			 
+			 addtutor(); 
 		}
 		else{
 ?>
@@ -151,10 +151,10 @@ include ('database/dbconn.php');
 				<label class="floatleft">School:</label>
 					<select name="school" id="enteredschool">
 					<option value="none" selected="selected">Select One</option>
-					<option value="*">CSOM</option>
-					<option value="**">A&S</option>
-					<option value="***">Lynch</option>
-					<option value="****">CSON</option>
+					<option value="CSOM">CSOM</option>
+					<option value="A&S">A&S</option>
+					<option value="Lynch">Lynch</option>
+					<option value="CSON">CSON</option>
 					</select>
 					<label class="floatright" id="schoolerror"></label><br>
 				
@@ -225,7 +225,7 @@ function addTutor() {
 	$dbc = connectToDB( 'kimbxn' ) ; 
 	
 	$newemail = $_POST['email'] ; 
-	$query = "Select * from studentlist where email = '$newemail' ";
+	$query = "Select * from tutorlist where email = '$newemail' ";
 	
 	$result = performQuery ($dbc, $query); 
 	while (@extract(mysqli_fetch_array($result, MYSQLI_ASSOC)) ) {
@@ -240,7 +240,7 @@ function addTutor() {
 	(name, gender, email, password, 
 	phonenumber, registrationdate, localaddress,
 	major, grade, school, subjects, 
-	availability, rating, ratingcounter, comments, )
+	availability, rating, ratingcounter, comments)
 	VALUES ('$_POST[name]', '$_POST[gender]', '$_POST[email]', sha1('$_POST[password1]'), 
 	        '$_POST[phone]', now(), '$_POST[address]', 
 			'$_POST[Major]', '$_POST[grade]', '$_POST[school]', '$_POST[subjects]', 
