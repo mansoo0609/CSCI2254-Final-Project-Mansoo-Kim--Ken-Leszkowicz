@@ -217,4 +217,34 @@ function addStudent() {
 	
 	header("Location: index.php?status=acctAdded");
 }
+
+function addTutor() {
+	
+	$dbc = connectToDB( 'kimbxn' ) ; 
+	
+	$newemail = $_POST['email'] ; 
+	$query = "Select * from studentlist where email = '$newemail' ";
+	
+	$result = performQuery ($dbc, $query); 
+	while (@extract(mysqli_fetch_array($result, MYSQLI_ASSOC)) ) {
+		if ($email == $newemail) {
+			die ("Email already Exists! <br><br> \n\n
+				  <a href = 'signup.php'> Resubmit </a> <br><br>\n\n
+				  </body></html>"); 
+		}
+	}
+	
+	$sql = "INSERT INTO tutorlist 
+	(name, gender, email, password, 
+	phonenumber, registrationdate, localaddress,
+	major, grade, school, subjects, 
+	availability, rating, ratingcounter, comments, )
+	VALUES ('$_POST[name]', '$_POST[gender]', '$_POST[email]', sha1('$_POST[password1]'), 
+	        '$_POST[phone]', now(), '$_POST[address]', 
+			'$_POST[Major]', '$_POST[grade]', '$_POST[school]', '$_POST[subjects]', 
+			'$_POST[availability]', NULL, 0, '$_POST[comment]')" ;
+	
+	$result2 = mysqli_query($dbc, $sql) ; 
+	
+	header("Location: index.php?status=acctAdded");
 ?>

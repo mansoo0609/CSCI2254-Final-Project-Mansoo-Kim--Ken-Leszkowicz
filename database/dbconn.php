@@ -1,7 +1,7 @@
 <?php
 
 function connectToDB($dbname){
-	$dbc= @mysqli_connect("localhost", "kimbxn", "4F5zJzzf", $dbname) or
+	$dbc= @mysqli_connect("http://cscilab.bc.edu/phpmyadmin/index.php?token=f337f32ff0b16cadf24c8e403665cc2b&db=kimbxn", "kimbxn", "4F5zJzzf", $dbname) or
 					die("Connect failed: ". mysqli_connect_error());
 	return $dbc;
 }
