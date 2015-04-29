@@ -1,3 +1,7 @@
+<?php
+include ('database/dbconn.php');
+?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -27,7 +31,7 @@
 <?php
 
 	function signuppagestudent() {
-		if(isset($POST_['submitform'])){
+		if(isset($_POST['submitformS'])){
 			addStudent(); 
 		}
 		else{
@@ -101,8 +105,8 @@
 	}
 	
 	function signuppagetutor() {
-		if(isset($POST_['submitformT'])){
-			addStudent(); 
+		if(isset($_POST['submitformT'])){
+			 
 		}
 		else{
 ?>
@@ -183,10 +187,11 @@
 		</fieldset>	
 <?php
 	}
+	}
 	
 function addStudent() {
 
-	$dbc = connectToDB("kimbxn") ; 
+	$dbc = connectToDB( 'kimbxn' ) ; 
 	
 	$newemail = $_POST['email'] ; 
 	$query = "Select * from studentlist where email = '$newemail' ";
