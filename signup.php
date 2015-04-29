@@ -92,7 +92,7 @@
 					<textarea name="comment" id="enteredcomment" style="width : 270px; height : 120px"></textarea>
 					<label class="floatright" id="commenterror"></label> <br> <br>
 				
-				<input type='submit' name='submitform' value='Create your Student Account' />
+				<input type='submit' name='submitformS' value='Create your Student Account' />
 					
 			</form>
 		</fieldset>	
@@ -101,6 +101,10 @@
 	}
 	
 	function signuppagetutor() {
+		if(isset($POST_['submitformT'])){
+			addStudent(); 
+		}
+		else{
 ?>
 		<fieldset>
 			<legend>Tutor Account Creation</legend>
@@ -173,7 +177,7 @@
 					<textarea name="comment" id="enteredcomment" style="width : 270px; height : 120px"></textarea>
 					<label class="floatright" id="commenterror"></label> <br> <br>
 				
-				<input type='submit' name='submitform' value='Create your Tutor Account' />
+				<input type='submit' name='submitformT' value='Create your Tutor Account' />
 					
 			</form>
 		</fieldset>	

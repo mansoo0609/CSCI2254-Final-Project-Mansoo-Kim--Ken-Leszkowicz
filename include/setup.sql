@@ -30,3 +30,12 @@ create table tutorlist (
 	ratingcounter integer default 0,
 	comments varchar(4000)
 );
+
+INSERT INTO studentlist (
+	name, gender, email, password, 
+	phonenumber, registrationdate, localaddress,
+	major, school, subjects, availability, comments)
+	VALUES (
+	'name', 'gender', 'email', sha1('password'), 
+	'phone', now(), 'address', 
+	'major', 'school', 'subjects', 'availability', 'comments')
