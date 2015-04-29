@@ -200,7 +200,7 @@ function addStudent() {
 	while (@extract(mysqli_fetch_array($result, MYSQLI_ASSOC)) ) {
 		if ($email == $newemail) {
 			die ("Email already Exists! <br><br> \n\n
-				  <a href = 'signup.php'> Resubmit </a> <br><br>\n\n
+				  <a href = 'index.php'> Resubmit </a> <br><br>\n\n
 				  </body></html>"); 
 		}
 	}
@@ -215,7 +215,9 @@ function addStudent() {
 	
 	$result2 = mysqli_query($dbc, $sql) ; 
 	
-	header("Location: index.php?status=acctAdded");
+	echo "Account was created! <br> \n\n 
+		  <a href = 'login.php'> Go to the log in page! </a> <br><br>\n\n
+		  <body></html>";
 }
 
 function addTutor() {
@@ -246,5 +248,8 @@ function addTutor() {
 	
 	$result2 = mysqli_query($dbc, $sql) ; 
 	
-	header("Location: index.php?status=acctAdded");
+	echo "Account was created! <br> \n\n 
+		  <a href = 'login.php'> Go to the log in page! </a> <br><br>\n\n
+		  <body></html>";
+}
 ?>
