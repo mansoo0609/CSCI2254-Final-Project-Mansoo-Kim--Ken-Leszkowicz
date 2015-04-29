@@ -27,10 +27,14 @@
 <?php
 
 	function signuppagestudent() {
+		if(isset($POST_['submitform'])){
+			addStudent(); 
+		}
+		else{
 ?>
 		<fieldset>
 			<legend>Student Account Creation</legend>
-			<form method = "post" onsubmit="return validatestudentsignup();" action="index.php" name='studentsignup'>
+			<form method = "post" onsubmit="return validatestudentsignup();" name='studentsignup'>
 				
 				<label class="floatleft">Name:</label>
 					<input type="text" name="name" id="enteredname" />
@@ -54,6 +58,10 @@
 					<input type="password" name="password2" id="password2" />
 					<label class="floatright" id="password2error"></label> <br>
 
+				<label class ="floatleft">Phone Number:</label> 
+					<input type ="text" name = "phone" id="phone"/>
+					<label class = "floatright" id ="phoneerror"></label> <br>
+					
 				<label class="floatleft">Local Address:</label>
 					<input type="text" name="address" id="enteredaddress" />
 					<label class="floatright" id="addresserror"></label> <br>
@@ -89,13 +97,14 @@
 			</form>
 		</fieldset>	
 <?php
+		}
 	}
 	
 	function signuppagetutor() {
 ?>
 		<fieldset>
 			<legend>Tutor Account Creation</legend>
-			<form method = "post" onsubmit="return validatetutorsignup();" action="index.php" name='studentsignup'>
+			<form method = "post" onsubmit="return validatetutorsignup();" action="" name='studentsignup'>
 				
 				<label class="floatleft">Name:</label>
 					<input type="text" name="name" id="enteredname" />
@@ -166,4 +175,33 @@
 		</fieldset>	
 <?php
 	}
+	
+function addStudent() {
+
+	$dbc = connectToDB("kimbxn") ; 
+	
+	$newemail = $_POST['email'] ; 
+	$query = "Select * from studentlist where email = '$newemail' ";
+	
+	$result = performQuery ($dbc, $query); 
+	while (@extract(mysqli_fetch_array($result, MYSQLI_ASSOC)) ) {
+		if ($email == $newemail) {
+			die ("Email already Exists! <br><br> \n\n
+				  <a href = 'signup.php'> Resubmit </a> <br><br>\n\n
+				  </body></html>"); 
+		}
+	}
+	
+	$sql = "INSERT INTO studentlist 
+	(name, gender, email, password, 
+	phonenumber, registrationdate, localaddress,
+	major, school, subjects, availability, comments)
+	VALUES ('$_POST[name]', '$_POST[gender]', '$_POST[email]', sha1('$_POST[password1]'), 
+	        '$_POST[phone]', now(), '$_POST[address]', 
+			'$_POST[Major]', '$_POST[school]', '$_POST[subjects]', '$_POST[availability]', '$_POST[comment]')" ;
+	
+	$result2 = mysqli_query($dbc, $sql) ; 
+	
+	header("Location: index.php?status=acctAdded");
+}
 ?>
