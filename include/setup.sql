@@ -39,3 +39,14 @@ INSERT INTO studentlist (
 	'name', 'gender', 'email', sha1('password'), 
 	'phone', now(), 'address', 
 	'major', 'school', 'subjects', 'availability', 'comments')
+	
+INSERT INTO tutorlist 
+	(name, gender, email, password, 
+	phonenumber, registrationdate, localaddress,
+	major, grade, school, subjects, 
+	availability, rating, ratingcounter, comments)
+	VALUES (
+	'name', 'gender', 'email', sha1('password'), 
+	'phone', now(), 'address', 
+	'major', 'grade', 'school', 'subjects', 
+	'availability', NULL, 0, 'comments')
