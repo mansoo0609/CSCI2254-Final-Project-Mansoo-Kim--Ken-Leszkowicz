@@ -15,19 +15,19 @@ include ('database/dbconn.php');
 
 <body>
 <?php
-	
+	$self = $_COOKIE['email'];
 	if(isset($_POST['Tchecked'])){
-		sendmail($_POST['Tchecked']);
+		sendmail($_POST['Tchecked'], $self);
 	}
 	else{
-		sendmail($_POST['Schecked']);
+		sendmail($_POST['Schecked'], $self);
 	}
 ?>
 	<br><br>
 	<a href = 'profile.php'> Go Back to your Profile </a>
 
 <?php	
-function sendmail($emails){
+function sendmail($emails, $self){
 	
 	$email = implode(", ", $emails);
 	
@@ -37,7 +37,7 @@ function sendmail($emails){
 		$to = "$check";
 		$subject = $_POST['subj'];
 		$body = $_POST['body'];
-		$headers = 'From: yourtutor';
+		$headers = "From: $self";
 		
 		mail($to,$subject,$body,$headers);
 	}
