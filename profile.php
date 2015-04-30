@@ -90,7 +90,7 @@ include ('database/dbconn.php');
 			  <input type='submit' name='logout' value='Sign Out' />\n
 			  </form>\n
 			  
-			  </fieldset> <br><br>\n\n" ;
+			  <br><br>\n\n" ;
 		
 		mysqli_free_result($result);
 		
@@ -195,7 +195,7 @@ include ('database/dbconn.php');
 						$comments
 					</td>
 					<td>
-						<input type = 'checkbox' name = 'checked' value = '$name'>
+						<input type = 'checkbox' name = 'Tchecked' value = '$name'>
 					</td>
 				</tr>";
 			}
@@ -268,7 +268,7 @@ function tutorprofile(){
 			  <input type='submit' name='logout' value='Sign Out' />\n
 			  </form>\n
 			  
-			  </fieldset> <br><br>\n\n" ;
+			  <br><br>\n\n" ;
 		  
 	mysqli_free_result($result);
 	
@@ -291,7 +291,8 @@ function tutorprofile(){
 </form>
 	
 	<br><br>
-	
+
+<form method = "post" action = "email.php">
 	<table>
 		<tr>
 			<th> Name and Contact info</th>
@@ -371,7 +372,7 @@ function tutorprofile(){
 						$comments
 					</td>
 					<td>
-						<input type = 'checkbox' name = 'checked' value = '$name'>
+						<input type = 'checkbox' name = 'Schecked[]' value = '$name'>
 					</td>
 				</tr>";
 			}
@@ -380,6 +381,10 @@ function tutorprofile(){
 			
 			disconnectFromDB($dbc, $resultS);
 	}
+?>
+		<input type = "submit" name = "email" value = "Send emails to selected Students">
+	</form>
+<?php
 }
 
 ?>
