@@ -82,8 +82,7 @@ include ('database/dbconn.php');
 					</td>
 				</tr></table>";
 			
-			echo"<form>\n
-
+			echo"<form action='editprofile.php'>\n
 			  <input type='submit' name='edit' value='Edit Your Profile' />\n
 			  </form>\n
 			  <br>\n
@@ -261,8 +260,7 @@ function tutorprofile(){
 					</td>
 				</tr></table>";
 				
-			  echo" <form>\n
-
+			  echo" <form action='editprofile.php'>\n
 			  <input type='submit' name='edit' value='Edit Your Profile' />\n
 			  </form>\n
 			  <br>\n
