@@ -12,7 +12,6 @@
 <body>
 
 <?php
-		include "login.php";
 		include "signup.php";
 		
 		if ( isset($_GET['login']) ) {
@@ -70,6 +69,21 @@
 					<label class="floatright" id="accounttypeerror">  </label> <br>
 				<input type='submit' name='typeselected' value='Make an Account' />
 			</form>
+		</fieldset>
+<?php
+	}
+	
+	function loginpage() {
+?>	
+		<fieldset> 
+		<form method = "post">
+			<h3>Are You a Student or a Tutor?</h3>
+			Student <input type = "radio" name = "type" value = "student">
+			Tutor <input type = "radio" name = "type" value = "tutor"> <br><br>
+			
+			<label style="width: 100px; display: inline-block;">Email: </label><input type = "text" name = "user" value = ""> <br>
+			<label style="width: 100px; display: inline-block;">Password: </label><input type = "password" name = "pass" value = ""> <br>
+		</form>
 		</fieldset>
 <?php
 	}
