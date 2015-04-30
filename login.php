@@ -60,6 +60,5 @@
 		$query = "Select email from $list where password = '$password' ";
 		$result = performQuery($dbc, $query);
 		
-		
 	}
 ?>

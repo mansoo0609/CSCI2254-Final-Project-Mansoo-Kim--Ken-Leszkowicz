@@ -76,14 +76,23 @@
 	function loginpage() {
 ?>	
 		<fieldset> 
+<<<<<<< HEAD
 		<form method = "post" action ='login.php'>
+=======
+		<form method = "post">
+>>>>>>> origin/master
 			<h3>Are You a Student or a Tutor?</h3>
 			Student <input type = "radio" name = "type" value = "student">
 			Tutor <input type = "radio" name = "type" value = "tutor"> <br><br>
 			
+<<<<<<< HEAD
 			<label style="width: 100px; display: inline-block;">Email: </label><input type = "text" name = "email" value = ""> <br>
 			<label style="width: 100px; display: inline-block;">Password: </label><input type = "password" name = "pass" value = ""> <br>
 			<input type='submit' name='login' value='Sign In' />
+=======
+			<label style="width: 100px; display: inline-block;">Email: </label><input type = "text" name = "user" value = ""> <br>
+			<label style="width: 100px; display: inline-block;">Password: </label><input type = "password" name = "pass" value = ""> <br>
+>>>>>>> origin/master
 		</form>
 		</fieldset>
 <?php
