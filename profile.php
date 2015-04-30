@@ -74,8 +74,20 @@ include ('database/dbconn.php');
 		
 		$resultT = performQuery($dbc, $queryt);
 		
+		$i=0;
+		
 		if($resultT) {
 			while ($row = mysqli_fetch_assoc($resultT)) {
+				
+			$i=$i+1;
+			
+			if($i%2==0){
+				$color = "color1";
+			}
+			else{
+				$color= "color2";
+			}
+			
 			$name = $row['name'];
 			$gender = $row['gender'];
 			$email = $row['email'];
@@ -87,7 +99,7 @@ include ('database/dbconn.php');
 			$avail = $row['availability'];
 			$comments = $row['comments'];
 			echo "
-				<tr>
+				<tr class= '$color'>
 					<td>
 						<b>$name</b> <br><br>
 						Gender: $gender <br>
@@ -164,8 +176,20 @@ function tutorprofile(){
 	
 	$resultS = performQuery ($dbc, $querys);
 	
+	$j=0;
+	
 	if($resultS) {
 		while ($row=mysqli_fetch_assoc($resultS)) {
+			
+			$j=$j+1;
+			
+			if($j%2==0){
+				$color = "color1";
+			}
+			else{
+				$color= "color2";
+			}
+			
 			$name = $row['name'];
 			$gender = $row['gender'];
 			$email = $row['email'];
@@ -177,7 +201,7 @@ function tutorprofile(){
 			$avail = $row['availability'];
 			$comments = $row['comments'];
 			echo "
-				<tr>
+				<tr class = '$color'>
 					<td>
 						<b>$name</b> <br><br>
 						Gender: $gender <br>
