@@ -372,7 +372,7 @@ function tutorprofile(){
 						$comments
 					</td>
 					<td>
-						<input type = 'checkbox' name = 'Schecked[]' value = '$name'>
+						<input type = 'checkbox' name = 'Schecked[]' value = '$email'>
 					</td>
 				</tr>";
 			}
