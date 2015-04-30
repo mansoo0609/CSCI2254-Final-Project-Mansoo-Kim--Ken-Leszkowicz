@@ -99,18 +99,23 @@ include ('database/dbconn.php');
 
 		$search = isset($_POST['searchbox']) ? $_POST['searchbox'] : "";
 		
-		if($_POST['selecttype']=='all'){
-			$searchTopic = "name OR gender OR email OR phonenumber OR localaddress OR major OR school OR subjects OR availability OR comments";
+		if(!isset($_POST['selecttype'])) {
+			$queryt="SELECT * FROM tutorlist";
 		}
 		else{
-			$searchTopic = $_POST['selecttype'];
-		}
+			if($_POST['selecttype']=='all'){
+				$searchTopic = "name OR gender OR email OR phonenumber OR localaddress OR major OR school OR subjects OR availability OR comments";
+			}
+			else{
+				$searchTopic = $_POST['selecttype'];
+			}
 		
-		if ($search ==""){
+			if ($search ==""){
 			$queryt= "SELECT * FROM tutorlist";
-		}
-		else{
-			$queryt = "SELECT * FROM tutorlist WHERE $searchTopic LIKE '%$search%'";
+			}
+			else{
+				$queryt = "SELECT * FROM tutorlist WHERE $searchTopic LIKE '%$search%'";
+			}
 		}
 		
 		$resultT = performQuery($dbc, $queryt);
