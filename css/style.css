@@ -24,3 +24,19 @@ h1,h2 {
 fieldset {
 	float: left;
 }
+
+.profile{
+	float: none;
+}
+
+table,th,tr,td{
+	border: 1px groove black;
+	}
+	
+.color1{
+	background-color: #FF6961
+}
+
+.color2{
+	background-color: #85ADFF
+}
