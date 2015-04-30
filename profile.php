@@ -293,7 +293,7 @@ function tutorprofile(){
 	<br><br>
 
 <form method = "post" action = "email.php">
-	<table>
+	<table class = "floattable">
 		<tr>
 			<th> Name and Contact info</th>
 			<th> School, Major, Subjects </th>
@@ -382,7 +382,17 @@ function tutorprofile(){
 			disconnectFromDB($dbc, $resultS);
 	}
 ?>
-		<input type = "submit" name = "email" value = "Send emails to selected Students">
+	<fieldset class = "floatemail">
+	Write Emails to the selected students
+	<br><br>
+	<label class = "floatleft"> Subject: </label> 
+	<input type ="text" name = "subj" value =""> <br>
+	<label class = "floatleft"> Body: </label><br>
+	<textarea name = "body" style="width : 270px; height : 120px"></textarea>
+	<br><br>
+	<input type = "submit" name = "email" value = "Send emails to selected Students">
+	</fieldset>
+	
 	</form>
 <?php
 }
