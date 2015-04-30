@@ -47,12 +47,22 @@ include ('database/dbconn.php');
 			$comments = $row['comments'];
 		}
 		
-		echo "<h1> $name </h1> <br> \n
-			  <fieldset class='profile'>
-			  Your contact info:  <ul><li>email: $email</li>
+		echo "<h1> Student Profile: $name </h1> \n
+			  <fieldset class='profile'> \n
+			  Your contact info:\n
+			  <ul>
+			  <li>email: $email</li>
 			  <li>phone: $phone</li>
 			  <li>address: $address</li>
-			  </ul>
+			  </ul>\n
+			  <form>\n
+			  <input type='submit' name='edit' value='Edit Your Profile' />\n
+			  </form>\n
+			  <br>\n
+			  <form action='logout.php'>\n
+			  <input type='submit' name='logout' value='Sign Out' />\n
+			  </form>\n
+			  
 			  </fieldset> <br><br>\n\n" ;
 		
 		mysqli_free_result($result);
@@ -163,18 +173,27 @@ function tutorprofile(){
 			$avail = $row['availability'];
 			$comments = $row['comments'];
 		}
-	echo "<h1> $name </h1> <br> \n
-		  <fieldset class = 'profile'>
-		  Your contact info: <ul><li>email: $email</li>
-		  <li>phone: $phone</li>
-		  <li>address: $address</li>
-		  </ul>
-		  </fieldset><br><br>\n\n" ;
+	echo "Tutor Profile: $name \n
+			  <fieldset class='profile'> \n
+			  Your contact info:\n
+			  <ul>
+			  <li>email: $email</li>
+			  <li>phone: $phone</li>
+			  <li>address: $address</li>
+			  </ul>\n
+			  <form>\n
+			  <input type='submit' name='edit' value='Edit Your Profile' />\n
+			  </form>\n
+			  <br>\n
+			  <form action='logout.php'>\n
+			  <input type='submit' name='logout' value='Sign Out' />\n
+			  </form>\n
+			  
+			  </fieldset> <br><br>\n\n" ;
 		  
 	mysqli_free_result($result);
-
-	echo "<h2>Student List</h2> \n\n";
 	
+	echo "<h2>Student List</h2> \n\n";
 ?>
 
 <form method = "post">
