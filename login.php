@@ -18,7 +18,7 @@
 		<html lang='en'>\n
 		<head>\n
 			<meta charset='utf-8' />\n
-			<title>Incorrect Password</title>\n
+			<title>Incorrect Email</title>\n
 			<link rel='stylesheet' type='text/css' href='css/style.css'>\n
 		</head>\n
 		<body>\n
@@ -43,6 +43,8 @@
 		</html>\n
 		";
 	} else {
+		setcookie('email', $newemail);
+		setcookie('type', $type );
 		header ( 'Location: profile.php' );
 	}
 
