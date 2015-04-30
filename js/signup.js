@@ -21,6 +21,7 @@ function validatetutorsignup() {
 	var gendervalid = validategender();
 	var emailvalid = validateemail();
 	var passwordvalid = validatepassword();
+	var phonevalid = validatephone();
 	var addressvalid = validateaddress();
 	var majorvalid = validatemajor();
 	var gradevalid = validategrade();
@@ -52,7 +53,7 @@ function validatename() {
 
  
 function validategender() {
-	var gender = document.studentsignup.gender;
+	var gender = document.infoform.gender;
 	for (var i=0; i<gender.length; i++) {
 		if (gender[i].checked) {
 			document.getElementById("gendererror").innerHTML  = "";

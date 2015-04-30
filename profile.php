@@ -55,7 +55,7 @@ include ('database/dbconn.php');
 			  <li>phone: $phone</li>
 			  <li>address: $address</li>
 			  </ul>\n
-			  <form>\n
+			  <form action='editprofile.php'>\n
 			  <input type='submit' name='edit' value='Edit Your Profile' />\n
 			  </form>\n
 			  <br>\n
@@ -204,7 +204,7 @@ function tutorprofile(){
 			  <li>phone: $phone</li>
 			  <li>address: $address</li>
 			  </ul>\n
-			  <form>\n
+			  <form action='editprofile.php'>\n
 			  <input type='submit' name='edit' value='Edit Your Profile' />\n
 			  </form>\n
 			  <br>\n
