@@ -33,16 +33,6 @@ include ('database/dbconn.php');
 		
 		$result = performQuery($dbc, $query);
 		
-?>
-	<table>
-		<tr>
-			<th>Name and Contact info</th>
-			<th>School, Major, Subjects </th>
-			<th>Availability and Additional Comments</th>
-		</tr>
-
-
-<?php		
 		while ($row = mysqli_fetch_assoc($result)) {
 			$name = $row['name'];
 			$gender = $row['gender'];
@@ -58,7 +48,7 @@ include ('database/dbconn.php');
 		
 		echo "<h1> $name </h1> <br> \n
 			  <fieldset class='profile'>
-			  Contact info: email: <ul><li>email: $email</li>
+			  Your contact info:  <ul><li>email: $email</li>
 			  <li>phone: $phone</li>
 			  <li>address: $address</li>
 			  </ul>
@@ -67,6 +57,18 @@ include ('database/dbconn.php');
 		mysqli_free_result($result);
 		
 		echo "Tutor List <br><br> \n\n";
+		
+?>
+	<table>
+		<tr>
+			<th>Name and Contact info</th>
+			<th>School, Major, Subjects </th>
+			<th>Availability and Additional Comments</th>
+			<th>Select Tutor </th>
+		</tr>
+
+
+<?php		
 		
 		$queryt = "SELECT * FROM tutorlist";
 		
@@ -87,22 +89,25 @@ include ('database/dbconn.php');
 			echo "
 				<tr>
 					<td>
-						<h2><b>$name</b></h2>
+						<b>$name</b> <br><br>
 						Gender: $gender <br>
 						email: $email <br>
 						Phone Number: $phone <br>
 						Local Address: $address <br>
 					</td>
 					<td>
-						<h3>$school</h3>
+						$school
 						Major: $major <br>
 						Subjects to teach: $subject <br>
 					</td>
 					<td>
-						Availability: <br>
-						$avail <br>
+						<br>Availability: <br>
+						$avail <br><br>\n\n
 						Additional Comments: <br>
 						$comments
+					</td>
+					<td>
+						<input type = 'checkbox' name = 'checked' value = '$name'>
 					</td>
 				</tr>";
 			}
