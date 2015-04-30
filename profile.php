@@ -57,7 +57,11 @@ include ('database/dbconn.php');
 		
 		mysqli_free_result($result);
 		
+<<<<<<< HEAD
 		echo "<h2>Tutor List</h2> \n\n";
+=======
+		echo "Tutor List<br> \n\n";
+>>>>>>> origin/master
 		
 ?>
 
@@ -173,7 +177,11 @@ function tutorprofile(){
 		  
 	mysqli_free_result($result);
 	
+<<<<<<< HEAD
 	echo "<h2>Student List</h2> \n\n";
+=======
+	echo "Student List <br>\n\n"
+>>>>>>> origin/master
 ?>
 
 <form method = "post">
