@@ -15,8 +15,13 @@ include ('database/dbconn.php');
 
 <body>
 <?php
-
-	sendmail($_POST['Schecked']);
+	
+	if(isset($_POST['Tchecked'])){
+		sendmail($_POST['Tchecked']);
+	}
+	else{
+		sendmail($_POST['Schecked']);
+	}
 ?>
 	<br><br>
 	<a href = 'profile.php'> Go Back to your Profile </a>

@@ -113,8 +113,9 @@ include ('database/dbconn.php');
 	</select>
 </form>	
 
+<form method = "post" action = "email.php">
 	<br><br>
-	<table>
+	<table class = "floattable">
 		<tr>
 			<th>Name and Contact info</th>
 			<th>School, Major, Subjects </th>
@@ -195,7 +196,7 @@ include ('database/dbconn.php');
 						$comments
 					</td>
 					<td>
-						<input type = 'checkbox' name = 'Tchecked' value = '$name'>
+						<input type = 'checkbox' name = 'Tchecked[]' value = '$email'>
 					</td>
 				</tr>";
 			}
@@ -204,7 +205,21 @@ include ('database/dbconn.php');
 			
 			disconnectFromDB($dbc, $resultT);
 		}
-	}
+?>
+	<fieldset class = "floatemail">
+	Write Emails to the selected students
+	<br><br>
+	<label class = "floatleft"> Subject: </label> 
+	<input type ="text" name = "subj" value =""> <br>
+	<label class = "floatleft"> Body: </label><br>
+	<textarea name = "body" style="width : 270px; height : 120px"></textarea>
+	<br><br>
+	<input type = "submit" name = "email" value = "Send emails to selected Students">
+	</fieldset>
+	
+	</form>
+<?php
+}
 	
 function tutorprofile(){
 	$dbc = connectToDB('kimbxn'); 
