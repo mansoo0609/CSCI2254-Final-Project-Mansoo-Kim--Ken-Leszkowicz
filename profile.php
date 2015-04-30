@@ -27,6 +27,8 @@ include ('database/dbconn.php');
 
 </body>
 
+
+
 <?php
 	function studentprofile(){
 		$dbc = connectToDB('kimbxn') ; 
@@ -47,6 +49,7 @@ include ('database/dbconn.php');
 			$comments = $row['comments'];
 		}
 		
+<<<<<<< HEAD
 		echo "<h1>Student Profile: $name</h1> \n
 			  <fieldset class='profile'> \n
 			  Your contact info:\n
@@ -56,6 +59,42 @@ include ('database/dbconn.php');
 			  <li>address: $address</li>
 			  </ul>\n
 			  <form action='editprofile.php'>\n
+=======
+		echo "<h1>Student Profile: $name</h1> \n";
+?>
+
+			<table>
+		<tr>
+			<th>Basic Info</th>
+			<th>School, Major, Subjects </th>
+			<th>Availability and Additional Comments</th>
+		</tr>
+		
+<?php
+		
+			echo"  
+				<tr class= 'color3'>
+					<td>
+						Gender: $gender <br>
+						email: $email <br>
+						Phone Number: $phone <br>
+						Local Address: $address <br>
+					</td>
+					<td>
+						$school <br>
+						Major: $major <br>
+						Subjects: $subject <br>
+					</td>
+					<td>
+						<br>Availability: <br>
+						$avail <br><br>\n\n
+						Additional Comments: <br>
+						$comments
+					</td>
+				</tr></table>";
+			
+			echo"<form>\n
+>>>>>>> origin/master
 			  <input type='submit' name='edit' value='Edit Your Profile' />\n
 			  </form>\n
 			  <br>\n
@@ -139,6 +178,7 @@ include ('database/dbconn.php');
 			$email = $row['email'];
 			$phone = $row['phonenumber'];
 			$address = $row['localaddress'];
+			$grade = $row['grade'];
 			$major = $row['major'];
 			$school = $row['school'];
 			$school = htmlentities($school);
@@ -156,6 +196,7 @@ include ('database/dbconn.php');
 					</td>
 					<td>
 						$school <br>
+						Grade: $grade <br>
 						Major: $major <br>
 						Subjects: $subject <br>
 					</td>
@@ -196,6 +237,7 @@ function tutorprofile(){
 			$avail = $row['availability'];
 			$comments = $row['comments'];
 		}
+<<<<<<< HEAD
 	echo "<h1>Tutor Profile: $name </h1>\n
 			  <fieldset class='profile'> \n
 			  Your contact info:\n
@@ -205,6 +247,43 @@ function tutorprofile(){
 			  <li>address: $address</li>
 			  </ul>\n
 			  <form action='editprofile.php'>\n
+=======
+	echo "<h1>Tutor Profile: $name </h1>\n";
+?>
+
+			<table>
+		<tr>
+			<th>Basic Info</th>
+			<th>School, Major, Subjects </th>
+			<th>Availability and Additional Comments</th>
+		</tr>
+		
+<?php
+
+			echo"  
+				<tr class= 'color3'>
+					<td>
+						Gender: $gender <br>
+						email: $email <br>
+						Phone Number: $phone <br>
+						Local Address: $address <br>
+					</td>
+					<td>
+						$school <br>
+						Grade: $grade<br>
+						Major: $major <br>
+						Subjects: $subject <br>
+					</td>
+					<td>
+						<br>Availability: <br>
+						$avail <br><br>\n\n
+						Additional Comments: <br>
+						$comments
+					</td>
+				</tr></table>";
+				
+			  echo" <form>\n
+>>>>>>> origin/master
 			  <input type='submit' name='edit' value='Edit Your Profile' />\n
 			  </form>\n
 			  <br>\n
