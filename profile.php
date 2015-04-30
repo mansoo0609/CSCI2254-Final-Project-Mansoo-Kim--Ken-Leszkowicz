@@ -74,6 +74,15 @@ include ('database/dbconn.php');
 <form method = "post">
 	<input type = "text" name = 'searchbox' value = "">
 	<input type = "submit" name = "searchsubmit" value = "Search Students">
+	Search By:<select name ="selecttype">
+		<option value = "all"> All </option>
+		<option value = "name"> Name</option>
+		<option value = "gender">Gender</option>
+		<option value = "localaddress">Local Address</option>
+		<option value = "school">School</option>
+		<option value = "major">Major</option>
+		<option value = "subjects">Subjects</option>
+	</select>
 </form>	
 
 	<br><br>
@@ -88,12 +97,19 @@ include ('database/dbconn.php');
 <?php		
 
 		$search = isset($_POST['searchbox']) ? $_POST['searchbox'] : "";
-
+		
+		if($_POST['selecttype']=='all'){
+			$searchTopic = "name OR gender OR email OR phonenumber OR localaddress OR major OR school OR subjects OR availability OR comments";
+		}
+		else{
+			$searchTopic = $_POST['selecttype'];
+		}
+		
 		if ($search ==""){
 			$queryt= "SELECT * FROM tutorlist";
 		}
 		else{
-			$queryt = "SELECT * FROM tutorlist WHERE name LIKE '%$search%'";
+			$queryt = "SELECT * FROM tutorlist WHERE $searchTopic LIKE '%$search%'";
 		}
 		
 		$resultT = performQuery($dbc, $queryt);
@@ -200,6 +216,12 @@ function tutorprofile(){
 <form method = "post">
 	<input type = "text" name = 'searchbox' value = "">
 	<input type = "submit" name = "searchsubmit" value = "Search Students">
+	<select name ="selecttype">
+		<option value = "name"> Name</option>
+		<option value = "gender">Gender</option>
+		<option value = "address">Local Address</option>
+		<option value = "school">School</option>
+	</select>
 </form>
 	
 	<br><br>
@@ -215,12 +237,13 @@ function tutorprofile(){
 <?php
 	
 	$search = isset($_POST['searchbox']) ?$_POST['searchbox'] : "";
+	$searchTopic = $_POST['selecttype'] ;
 	
 	if ($search ==""){
 		$querys= "SELECT * FROM studentlist";
 	}
 	else{
-		$querys = "SELECT * FROM studentlist WHERE name LIKE '%$search%'";
+		$querys = "SELECT * FROM studentlist WHERE $searchTopic LIKE '%$search%'";
 	}
 	
 	$resultS = performQuery ($dbc, $querys);
