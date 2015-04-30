@@ -51,14 +51,20 @@
 		}
 	}
 	
-	function checkpassword ( $list, $password, $newemail ) {
-		
+	function checkpassword ( $list, $newpassword, $newemail ) {
 		$dbc = connectToDB( 'kimbxn' ) ;
 		
-		$password = sha1($password);
+		$newpassword = sha1($newpassword);
 		
-		$query = "Select email from $list where password = '$password' ";
+		$query = "Select email, password from $list where password = '$newpassword' ";
 		$result = performQuery($dbc, $query);
+		while (@extract(mysqli_fetch_array($result, MYSQLI_ASSOC)) ) {
+			if ( $email == $newemail && $password == $newpassword ) {
+				echo "good";
+			}
+		}
+		disconnectFromDB($dbc, $result);
+		echo "bad";
 		
 	}
 ?>
