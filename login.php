@@ -24,8 +24,15 @@
 	
 	$newemail = $_POST['email'];
 	$password = $_POST['password'];
-	//checkemail( $list, $newemail );
-	checkpassword ( $list, $password, $newemail );
+	if ( !checkemail( $list, $newemail ) ) {
+		echo "The email $newemail was not found in the $type database.<br>\n
+		<a href = 'index.php?login=Login+with+your+ID'> Try Again! </a> \n";
+	} else if ( !checkpassword ( $list, $password, $newemail ) ) {
+		echo "Your password was incorrect.<br>\n
+		<a href = 'index.php?login=Login+with+your+ID'> Try Again! </a> \n";
+	} else {
+		echo "good";
+	}
 	
 ?>
 
@@ -60,11 +67,12 @@
 		$result = performQuery($dbc, $query);
 		while (@extract(mysqli_fetch_array($result, MYSQLI_ASSOC)) ) {
 			if ( $email == $newemail && $password == $newpassword ) {
-				echo "good";
+				disconnectFromDB($dbc, $result);
+				return true;
 			}
 		}
 		disconnectFromDB($dbc, $result);
-		echo "bad";
+		echo false;
 		
 	}
 ?>
