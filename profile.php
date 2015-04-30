@@ -56,9 +56,16 @@ include ('database/dbconn.php');
 		
 		mysqli_free_result($result);
 		
-		echo "Tutor List <br><br> \n\n";
+		echo "Tutor List<br> \n\n";
 		
 ?>
+
+<form method = "post">
+	<input type = "text" name = 'searchbox' value = "">
+	<input type = "submit" name = "searchsubmit" value = "Search Students">
+</form>	
+
+	<br><br>
 	<table>
 		<tr>
 			<th>Name and Contact info</th>
@@ -67,10 +74,16 @@ include ('database/dbconn.php');
 			<th>Select Tutor </th>
 		</tr>
 
-
 <?php		
-		
-		$queryt = "SELECT * FROM tutorlist";
+
+		$search = isset($_POST['searchbox']) ? $_POST['searchbox'] : "";
+
+		if ($search ==""){
+			$queryt= "SELECT * FROM tutorlist";
+		}
+		else{
+			$queryt = "SELECT * FROM tutorlist WHERE name LIKE '%$search%'";
+		}
 		
 		$resultT = performQuery($dbc, $queryt);
 		
@@ -159,9 +172,16 @@ function tutorprofile(){
 		  
 	mysqli_free_result($result);
 	
-	echo "Student List <br><br> \n\n"
+	echo "Student List <br>\n\n"
 ?>
 
+<form method = "post">
+	<input type = "text" name = 'searchbox' value = "">
+	<input type = "submit" name = "searchsubmit" value = "Search Students">
+</form>
+	
+	<br><br>
+	
 	<table>
 		<tr>
 			<th> Name and Contact info</th>
@@ -172,7 +192,14 @@ function tutorprofile(){
 		
 <?php
 	
-	$querys= "SELECT * FROM studentlist";
+	$search = isset($_POST['searchbox']) ?$_POST['searchbox'] : "";
+	
+	if ($search ==""){
+		$querys= "SELECT * FROM studentlist";
+	}
+	else{
+		$querys = "SELECT * FROM studentlist WHERE name LIKE '%$search%'";
+	}
 	
 	$resultS = performQuery ($dbc, $querys);
 	
