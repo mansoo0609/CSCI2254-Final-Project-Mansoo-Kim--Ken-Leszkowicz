@@ -48,18 +48,7 @@ include ('database/dbconn.php');
 			$avail = $row['availability'];
 			$comments = $row['comments'];
 		}
-		
-<<<<<<< HEAD
-		echo "<h1>Student Profile: $name</h1> \n
-			  <fieldset class='profile'> \n
-			  Your contact info:\n
-			  <ul>
-			  <li>email: $email</li>
-			  <li>phone: $phone</li>
-			  <li>address: $address</li>
-			  </ul>\n
-			  <form action='editprofile.php'>\n
-=======
+			  
 		echo "<h1>Student Profile: $name</h1> \n";
 ?>
 
@@ -94,7 +83,7 @@ include ('database/dbconn.php');
 				</tr></table>";
 			
 			echo"<form>\n
->>>>>>> origin/master
+
 			  <input type='submit' name='edit' value='Edit Your Profile' />\n
 			  </form>\n
 			  <br>\n
@@ -237,17 +226,7 @@ function tutorprofile(){
 			$avail = $row['availability'];
 			$comments = $row['comments'];
 		}
-<<<<<<< HEAD
-	echo "<h1>Tutor Profile: $name </h1>\n
-			  <fieldset class='profile'> \n
-			  Your contact info:\n
-			  <ul>
-			  <li>email: $email</li>
-			  <li>phone: $phone</li>
-			  <li>address: $address</li>
-			  </ul>\n
-			  <form action='editprofile.php'>\n
-=======
+
 	echo "<h1>Tutor Profile: $name </h1>\n";
 ?>
 
@@ -283,7 +262,7 @@ function tutorprofile(){
 				</tr></table>";
 				
 			  echo" <form>\n
->>>>>>> origin/master
+
 			  <input type='submit' name='edit' value='Edit Your Profile' />\n
 			  </form>\n
 			  <br>\n
