@@ -15,8 +15,7 @@
 	$type = $_COOKIE['type'];
 	if ( $type == 'tutor' ) {
 		$type2 = 'Tutor';
-	} else {
-		$type = 'student';
+	} else if ( $type == 'student' ){
 		$type2 = 'Student';
 	}
 ?>
@@ -69,7 +68,7 @@
 				<label class="floatright" id="schoolerror"></label><br>
 				
 			<?php
-				if ( $type = 'tutor' ) {
+				if ( $type == 'tutor' ) {
 					echo "
 					<label class='floatleft'>Grade:</label>
 						<select name='grade' id='enteredgrade'>
