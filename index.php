@@ -19,6 +19,21 @@
 			loginpage();
 		} else if ( isset($_GET['signup']) ) {
 			selectaccounttype();
+			if ( isset($_GET['accounttype']) ) {
+				$accounttype = $_GET['accounttype'];
+				if ( $accounttype == 'student' ) {
+					signuppagestudent();
+				} else {
+					signuppagetutor();
+				}
+			}
+		} else if ( isset($_GET['accounttype']) ) {
+				$accounttype = $_GET['accounttype'];
+				if ( $accounttype == 'student' ) {
+					signuppagestudent();
+				} else {
+					signuppagetutor();
+				}
 		} else {
 			welcomepage();
 		}
@@ -48,7 +63,7 @@
 	function selectaccounttype() {
 ?>
 		<fieldset>
-			<form method='get' onsubmit='return validatetype();' action='signup.php' name='selecttype'>
+			<form method='get' onsubmit='return validatetype();'>
 				<label class="floatleft">Select Account Type:</label>
 					<input type="radio" name="accounttype" value="student" /> Student
 					<input type="radio" name="accounttype" value="tutor" /> Tutor

@@ -3,7 +3,7 @@ function validatestudentsignup() {
 	var gendervalid = validategender();
 	var emailvalid = validateemail();
 	var passwordvalid = validatepassword();
-	//var phonevalid = validatephone();
+	var phonevalid = validatephone();
 	var addressvalid = validateaddress();
 	var majorvalid = validatemajor();
 	var schoolvalid = validateschool();
@@ -105,6 +105,17 @@ function validatepassword() {
 	errorrpt.innerHTML = "";
 	var errorrpt = document.getElementById("password2error");
 	errorrpt.innerHTML = "";
+	return true;
+}
+
+function validatephone() {
+	var phone = document.getElementById("enteredphone").value;
+	var tomatch = /^\d{3}-\d{3}-\d{4}$/;
+	if  ( !tomatch.test(phone) ){
+		document.getElementById("phoneerror").innerHTML  = "<font color='red'>Please input a phone number as xxx-xxx-xxxx.</font>";
+		return false;
+	}
+	document.getElementById("phoneerror").innerHTML  = '';
 	return true;
 }
 

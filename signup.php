@@ -1,34 +1,5 @@
 <?php
 include ('database/dbconn.php');
-?>
-
-<!DOCTYPE html>
-
-<html lang="en">
-
-<head>
-	<meta charset="utf-8" />
-	<title>Make an Account for BC Tutoring Service</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<script type="text/javascript" src="js/signup.js"></script>
-</head>
-
-<body>
-
-<?php
-	if ( isset($_GET['accounttype']) )
-		if ( $_GET['accounttype'] == 'student' ) {
-			signuppagestudent();
-		} else {
-			signuppagetutor();
-		}
-?>
-
-</body>
-
-</html>
-
-<?php
 
 	function signuppagestudent() {
 		if(isset($_POST['submitformS'])){
@@ -38,7 +9,7 @@ include ('database/dbconn.php');
 ?>
 		<fieldset>
 			<legend>Student Account Creation</legend>
-			<form method = "post" onsubmit="return validatestudentsignup();" name='studentsignup'>
+			<form method = "post" onsubmit="return validatestudentsignup();">
 				
 				<label class="floatleft">Name:</label>
 					<input type="text" name="name" id="enteredname" />
@@ -71,14 +42,14 @@ include ('database/dbconn.php');
 					<label class="floatright" id="addresserror"></label> <br>
 					
 				<label class="floatleft">Major:</label>
-					<input type="text" name="Major" id="enteredmajor" />
+					<input type="text" name="major" id="enteredmajor" />
 					<label class="floatright" id="majorerror"></label> <br>
 					
 				<label class="floatleft">School:</label>
 					<select name="school" id="enteredschool">
 					<option value="none" selected="selected">Select One</option>
 					<option value="CSOM">CSOM</option>
-					<option value="A&S">A&S</option>
+					<option value="A&#38;S">A&#38;S</option>
 					<option value="Lynch">Lynch</option>
 					<option value="CSON">CSON</option>
 					</select>
@@ -112,7 +83,7 @@ include ('database/dbconn.php');
 ?>
 		<fieldset>
 			<legend>Tutor Account Creation</legend>
-			<form method = "post" onsubmit="return validatetutorsignup();" action="" name='studentsignup'>
+			<form method = "post" onsubmit="return validatetutorsignup();">
 				
 				<label class="floatleft">Name:</label>
 					<input type="text" name="name" id="enteredname" />
@@ -145,14 +116,14 @@ include ('database/dbconn.php');
 					<label class="floatright" id="addresserror"></label> <br>
 					
 				<label class="floatleft">Major:</label>
-					<input type="text" name="Major" id="enteredmajor" />
+					<input type="text" name="major" id="enteredmajor" />
 					<label class="floatright" id="majorerror"></label> <br>
 					
 				<label class="floatleft">School:</label>
 					<select name="school" id="enteredschool">
 					<option value="none" selected="selected">Select One</option>
 					<option value="CSOM">CSOM</option>
-					<option value="A&S">A&S</option>
+					<option value="A&#38;S">A&#38;S</option>
 					<option value="Lynch">Lynch</option>
 					<option value="CSON">CSON</option>
 					</select>
@@ -161,11 +132,11 @@ include ('database/dbconn.php');
 				<label class="floatleft">Grade:</label>
 					<select name="grade" id="enteredgrade">
 					<option value="none" selected="selected">Select One</option>
-					<option value="freshmen">Freshmen</option>
-					<option value="sophomore">Sophomore</option>
-					<option value="junior">Junior</option>
-					<option value="senior">Senior</option>
-					<option value="grad">Grad</option>					
+					<option value="Freshmen">Freshmen</option>
+					<option value="Sophomore">Sophomore</option>
+					<option value="Junior">Junior</option>
+					<option value="Senior">Senior</option>
+					<option value="Grad">Grad</option>					
 					</select>
 					<label class="floatright" id="gradeerror"></label><br>
 					
@@ -190,7 +161,19 @@ include ('database/dbconn.php');
 	}
 	
 function addStudent() {
-
+	
+	$name = $_POST['name'];
+	$gender = $_POST['gender'];
+	$email = $_POST['email'];
+	$password = sha1($_POST['password1']);
+	$phone = $_POST['phone'];
+	$address = $_POST['address'];
+	$major = $_POST['major'];
+	$school = $_POST['school'];
+	$subjects= $_POST['subjects'];
+	$availability = $_POST['availability'];
+	$comment = $_POST['comment'];
+	
 	$dbc = connectToDB( 'kimbxn' ) ; 
 	
 	$newemail = $_POST['email'] ; 
@@ -199,28 +182,45 @@ function addStudent() {
 	$result = performQuery ($dbc, $query); 
 	while (@extract(mysqli_fetch_array($result, MYSQLI_ASSOC)) ) {
 		if ($email == $newemail) {
-			die ("Email already Exists! <br><br> \n\n
-				  <a href = 'index.php'> Resubmit </a> <br><br>\n\n
-				  </body></html>"); 
+			die ("This email is already associated with a different student account. Please try again! <br><br> \n
+				  <a href = 'index.php?accounttype=student&#38;typeselected=Make+an+Account'> Resubmit </a> \n
+				  </body> \n
+				  </html>"); 
 		}
 	}
 	
-	$sql = "INSERT INTO studentlist 
+	$sql = "INSERT INTO studentlist
 	(name, gender, email, password, 
 	phonenumber, registrationdate, localaddress,
-	major, school, subjects, availability, comments)
-	VALUES ('$_POST[name]', '$_POST[gender]', '$_POST[email]', sha1('$_POST[password1]'), 
-	        '$_POST[phone]', now(), '$_POST[address]', 
-			'$_POST[Major]', '$_POST[school]', '$_POST[subjects]', '$_POST[availability]', '$_POST[comment]')" ;
+	major, school, subjects, 
+	availability, comments)
+	VALUES ('$name', '$gender', '$email', '$password', 
+	        '$phone', now(), '$address', 
+			'$major', '$school', '$subjects', 
+			'$availability', '$comment')" ;
 	
-	$result2 = mysqli_query($dbc, $sql) ; 
+	$result2 = performQuery($dbc, $sql);
+	disconnectFromDB($dbc, $result);
 	
-	echo "Account was created! <br> \n\n 
-		  <a href = 'index.php?login=Login+with+your+ID'> Go to the log in page! </a> <br><br>\n\n
-		  <body></html>";
+	echo "Account was created! <br> \n
+		  <a href = 'index.php?login=Login+with+your+ID'> Go to the log in page! </a> \n";
 }
 
 function addTutor() {
+	
+	$name = $_POST['name'];
+	$gender = $_POST['gender'];
+	$email = $_POST['email'];
+	$password = sha1($_POST['password1']);
+	$phone = $_POST['phone'];
+	$address = $_POST['address'];
+	$major = $_POST['major'];
+	$grade = $_POST['grade'];
+	$school = $_POST['school'];
+	$subjects= $_POST['subjects'];
+	$availability = $_POST['availability'];
+	$comment = $_POST['comment'];
+	
 	
 	$dbc = connectToDB( 'kimbxn' ) ; 
 	
@@ -230,9 +230,10 @@ function addTutor() {
 	$result = performQuery ($dbc, $query); 
 	while (@extract(mysqli_fetch_array($result, MYSQLI_ASSOC)) ) {
 		if ($email == $newemail) {
-			die ("Email already Exists! <br><br> \n\n
-				  <a href = 'signup.php'> Resubmit </a> <br><br>\n\n
-				  </body></html>"); 
+			die ("This email is already associated with a different tutor account. Please try again! <br><br> \n
+				  <a href = 'index.php?accounttype=tutor&#38;typeselected=Make+an+Account'> Resubmit </a>\n
+				  </body> \n
+				  </html>"); 
 		}
 	}
 	
@@ -240,16 +241,16 @@ function addTutor() {
 	(name, gender, email, password, 
 	phonenumber, registrationdate, localaddress,
 	major, grade, school, subjects, 
-	availability, rating, ratingcounter, comments)
-	VALUES ('$_POST[name]', '$_POST[gender]', '$_POST[email]', sha1('$_POST[password1]'), 
-	        '$_POST[phone]', now(), '$_POST[address]', 
-			'$_POST[Major]', '$_POST[grade]', '$_POST[school]', '$_POST[subjects]', 
-			'$_POST[availability]', NULL, 0, '$_POST[comment]')" ;
+	availability, comments)
+	VALUES ('$name', '$gender', '$email', '$password', 
+	        '$phone', now(), '$address', 
+			'$major', '$grade', '$school', '$subjects', 
+			'$availability', '$comment')" ;
 	
-	$result2 = mysqli_query($dbc, $sql) ; 
+	$result2 = performQuery($dbc, $sql);
+	disconnectFromDB($dbc, $result);
 	
-	echo "Account was created! <br> \n\n 
-		  <a href = 'index.php?login=Login+with+your+ID'> Go to the log in page! </a> <br><br>\n\n
-		  <body></html>";
+	echo "Your tutor account was created! <br><br> \n
+		  <a href = 'index.php?login=Login+with+your+ID'> Go to the log in page! </a> \n";
 }
 ?>

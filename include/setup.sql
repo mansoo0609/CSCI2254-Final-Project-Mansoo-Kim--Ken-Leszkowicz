@@ -22,7 +22,7 @@ create table tutorlist (
 	registrationdate datetime,
 	localaddress varchar(50),
 	major varchar(50),
-	grade enum('Freshmen', 'Sophomore', 'Junior', 'Senior'),
+	grade enum('Freshmen', 'Sophomore', 'Junior', 'Senior', 'Grad'),
 	school enum('CSOM', 'A&S', 'Lynch', 'CSON'),
 	subjects varchar(200),
 	availability varchar(1000),
@@ -44,9 +44,8 @@ INSERT INTO tutorlist
 	(name, gender, email, password, 
 	phonenumber, registrationdate, localaddress,
 	major, grade, school, subjects, 
-	availability, rating, ratingcounter, comments)
-	VALUES (
-	'name', 'gender', 'email', sha1('password'), 
-	'phone', now(), 'address', 
-	'major', 'grade', 'school', 'subjects', 
-	'availability', NULL, 0, 'comments')
+	availability, comments)
+	VALUES ('$name', '$gender', '$email', '$password', 
+	        '$phone', now(), '$address', 
+			'$major', '$grade', '$school', '$subjects', 
+			'$availability', '$comment');
