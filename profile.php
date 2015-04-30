@@ -44,6 +44,7 @@ include ('database/dbconn.php');
 			$address = $row['localaddress'];
 			$major = $row['major'];
 			$school = $row['school'];
+			$school = htmlentities($school);
 			$subject = $row['subjects'];
 			$avail = $row['availability'];
 			$comments = $row['comments'];
@@ -113,7 +114,7 @@ include ('database/dbconn.php');
 	</select>
 </form>	
 
-<form method = "post" action = "email.php">
+<form method = "post" action = "email.php" onsubmit='return false;'>
 	<br><br>
 	<table class = "floattable">
 		<tr>
@@ -210,8 +211,8 @@ include ('database/dbconn.php');
 	Write Emails to the selected students
 	<br><br>
 	<label class = "floatleft"> Subject: </label> 
-	<input type ="text" name = "subj" value =""> <br>
-	<label class = "floatleft"> Body: </label><br>
+		<input type ="text" name = "subj" value =""> <br>
+		<label class = "floatleft"> Body: </label><br>
 	<textarea name = "body" style="width : 270px; height : 120px"></textarea>
 	<br><br>
 	<input type = "submit" name = "email" value = "Send emails to selected Students">
