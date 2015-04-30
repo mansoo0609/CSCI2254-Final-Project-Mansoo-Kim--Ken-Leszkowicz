@@ -208,14 +208,14 @@ include ('database/dbconn.php');
 		}
 ?>
 	<fieldset class = "floatemail">
-	Write Emails to the selected students
+	Write Emails to the selected Tutors
 	<br><br>
 	<label class = "floatleft"> Subject: </label> 
 		<input type ="text" name = "subj" value =""> <br>
 		<label class = "floatleft"> Body: </label><br>
 	<textarea name = "body" style="width : 270px; height : 120px"></textarea>
 	<br><br>
-	<input type = "submit" name = "email" value = "Send emails to selected Students">
+	<input type = "submit" name = "email" value = "Send emails to selected Tutors">
 	</fieldset>
 	
 	</form>
