@@ -248,18 +248,23 @@ function tutorprofile(){
 	
 	$search = isset($_POST['searchbox']) ?$_POST['searchbox'] : "";
 	
-	if($_POST['selecttype']=='all'){
-			$searchTopic = "concat(name,' ',gender,' ',email,' ',phonenumber,' ',localaddress,' ',major,' ',school,' ',subjects,' ',availability,' ', comments)";
+	if(!isset($_POST['selecttype'])) {
+			$querys="SELECT * FROM studentlist";
 		}
 	else{
-		$searchTopic = $_POST['selecttype'];
-	}
+		if($_POST['selecttype']=='all'){
+			$searchTopic = "concat(name,' ',gender,' ',email,' ',phonenumber,' ',localaddress,' ',major,' ',school,' ',subjects,' ',availability,' ', comments)";
+		}
+		else{
+			$searchTopic = $_POST['selecttype'];
+		}
 	
-	if ($search ==""){
-		$querys= "SELECT * FROM studentlist";
-	}
-	else{
-		$querys = "SELECT * FROM studentlist WHERE $searchTopic LIKE '%$search%'";
+		if ($search ==""){
+			$querys= "SELECT * FROM studentlist";
+		}
+		else{
+			$querys = "SELECT * FROM studentlist WHERE $searchTopic LIKE '%$search%'";
+		}
 	}
 	
 	$resultS = performQuery ($dbc, $querys);
