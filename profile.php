@@ -82,6 +82,7 @@ include ('database/dbconn.php');
 		<option value = "school">School</option>
 		<option value = "major">Major</option>
 		<option value = "subjects">Subjects</option>
+		<option value = "availability">Availability</option>
 	</select>
 </form>	
 
@@ -216,11 +217,15 @@ function tutorprofile(){
 <form method = "post">
 	<input type = "text" name = 'searchbox' value = "">
 	<input type = "submit" name = "searchsubmit" value = "Search Students">
-	<select name ="selecttype">
+	Search By:<select name ="selecttype">
+		<option value = "all"> All </option>
 		<option value = "name"> Name</option>
 		<option value = "gender">Gender</option>
-		<option value = "address">Local Address</option>
+		<option value = "localaddress">Local Address</option>
 		<option value = "school">School</option>
+		<option value = "major">Major</option>
+		<option value = "subjects">Subjects</option>
+		<option value = "availability">Availability</option>
 	</select>
 </form>
 	
@@ -237,7 +242,13 @@ function tutorprofile(){
 <?php
 	
 	$search = isset($_POST['searchbox']) ?$_POST['searchbox'] : "";
-	$searchTopic = $_POST['selecttype'] ;
+	
+	if($_POST['selecttype']=='all'){
+			$searchTopic = "name OR gender OR email OR phonenumber OR localaddress OR major OR school OR subjects OR availability OR comments";
+		}
+	else{
+		$searchTopic = $_POST['selecttype'];
+	}
 	
 	if ($search ==""){
 		$querys= "SELECT * FROM studentlist";
