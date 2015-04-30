@@ -11,6 +11,7 @@ h1,h2 {
 .floattable{
 	display: inline-block; 
 	text-align: left; 
+	width: 900px;
 }
 
 .floatleft { 
