@@ -9,7 +9,7 @@ include ('database/dbconn.php');
 ?>
 		<fieldset>
 			<legend>Student Account Creation</legend>
-			<form method = "post" onsubmit="return validatestudentsignup();">
+			<form method = "post" onsubmit="return validatestudentsignup();" name="infoform">
 				
 				<label class="floatleft">Name:</label>
 					<input type="text" name="name" id="enteredname" />
@@ -83,7 +83,7 @@ include ('database/dbconn.php');
 ?>
 		<fieldset>
 			<legend>Tutor Account Creation</legend>
-			<form method = "post" onsubmit="return validatetutorsignup();">
+			<form method = "post" onsubmit="return validatetutorsignup();" name='infoform'>
 				
 				<label class="floatleft">Name:</label>
 					<input type="text" name="name" id="enteredname" />
@@ -202,7 +202,7 @@ function addStudent() {
 	$result2 = performQuery($dbc, $sql);
 	disconnectFromDB($dbc, $result);
 	
-	echo "Account was created! <br> \n
+	echo "Your student account was created! <br> \n
 		  <a href = 'index.php?login=Login+with+your+ID'> Go to the log in page! </a> \n";
 }
 
