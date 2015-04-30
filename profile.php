@@ -104,7 +104,7 @@ include ('database/dbconn.php');
 		}
 		else{
 			if($_POST['selecttype']=='all'){
-				$searchTopic = "name OR gender OR email OR phonenumber OR localaddress OR major OR school OR subjects OR availability OR comments";
+				$searchTopic = "concat(name,' ',gender,' ',email,' ',phonenumber,' ',localaddress,' ',major,' ',school,' ',subjects,' ',availability,' ', comments)";
 			}
 			else{
 				$searchTopic = $_POST['selecttype'];
@@ -249,7 +249,7 @@ function tutorprofile(){
 	$search = isset($_POST['searchbox']) ?$_POST['searchbox'] : "";
 	
 	if($_POST['selecttype']=='all'){
-			$searchTopic = "name OR gender OR email OR phonenumber OR localaddress OR major OR school OR subjects OR availability OR comments";
+			$searchTopic = "concat(name,' ',gender,' ',email,' ',phonenumber,' ',localaddress,' ',major,' ',school,' ',subjects,' ',availability,' ', comments)";
 		}
 	else{
 		$searchTopic = $_POST['selecttype'];
