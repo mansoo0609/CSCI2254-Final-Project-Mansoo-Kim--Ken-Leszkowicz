@@ -47,7 +47,7 @@ include ('database/dbconn.php');
 			$comments = $row['comments'];
 		}
 		
-		echo "<h1> Student Profile: $name </h1> \n
+		echo "<h1>Student Profile: $name</h1> \n
 			  <fieldset class='profile'> \n
 			  Your contact info:\n
 			  <ul>
@@ -119,6 +119,7 @@ include ('database/dbconn.php');
 			$address = $row['localaddress'];
 			$major = $row['major'];
 			$school = $row['school'];
+			$school = htmlentities($school);
 			$subject = $row['subjects'];
 			$avail = $row['availability'];
 			$comments = $row['comments'];
@@ -173,7 +174,7 @@ function tutorprofile(){
 			$avail = $row['availability'];
 			$comments = $row['comments'];
 		}
-	echo "Tutor Profile: $name \n
+	echo "<h1>Tutor Profile: $name </h1>\n
 			  <fieldset class='profile'> \n
 			  Your contact info:\n
 			  <ul>
@@ -245,6 +246,7 @@ function tutorprofile(){
 			$address = $row['localaddress'];
 			$major = $row['major'];
 			$school = $row['school'];
+			$school = htmlentities($school);
 			$subject = $row['subjects'];
 			$avail = $row['availability'];
 			$comments = $row['comments'];
