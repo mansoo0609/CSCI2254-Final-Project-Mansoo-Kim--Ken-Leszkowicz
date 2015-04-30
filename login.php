@@ -1,15 +1,3 @@
-<!DOCTYPE html>
-
-<html lang="en">
-
-<head>
-	<meta charset="utf-8" />
-	<title>User Home Page</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
-
-<body>
-
 <?php
 
 	include ('database/dbconn.php');
@@ -31,16 +19,8 @@
 		echo "Your password was incorrect.<br>\n
 		<a href = 'index.php?login=Login+with+your+ID'> Try Again! </a> \n";
 	} else {
-		echo "good";
+		header ( 'Location: profile.php' );
 	}
-	
-?>
-
-</body>
-
-</html>
-
-<?php
 
 	function checkemail( $list, $newemail ) {
 		
