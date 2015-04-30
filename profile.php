@@ -16,7 +16,8 @@ include ('database/dbconn.php');
 <body>
 
 <?php
-	if($_POST['type'] == 'student') { 
+	$type = $_COOKIE['type'];
+	if( $type == 'student') { 
 		studentprofile();
 	}
 	else {
@@ -29,7 +30,7 @@ include ('database/dbconn.php');
 <?php
 	function studentprofile(){
 		$dbc = connectToDB('kimbxn') ; 
-		$query = "SELECT * FROM studentlist WHERE email = '$_POST[email]'";
+		$query = "SELECT * FROM studentlist WHERE email = '$_COOKIE[email]'";
 		
 		$result = performQuery($dbc, $query);
 		
@@ -56,9 +57,16 @@ include ('database/dbconn.php');
 		
 		mysqli_free_result($result);
 		
-		echo "Tutor List <br><br> \n\n";
+		echo "<h2>Tutor List</h2> \n\n";
 		
 ?>
+
+<form method = "post">
+	<input type = "text" name = 'searchbox' value = "">
+	<input type = "submit" name = "searchsubmit" value = "Search Students">
+</form>	
+
+	<br><br>
 	<table>
 		<tr>
 			<th>Name and Contact info</th>
@@ -67,10 +75,16 @@ include ('database/dbconn.php');
 			<th>Select Tutor </th>
 		</tr>
 
-
 <?php		
-		
-		$queryt = "SELECT * FROM tutorlist";
+
+		$search = isset($_POST['searchbox']) ? $_POST['searchbox'] : "";
+
+		if ($search ==""){
+			$queryt= "SELECT * FROM tutorlist";
+		}
+		else{
+			$queryt = "SELECT * FROM tutorlist WHERE name LIKE '%$search%'";
+		}
 		
 		$resultT = performQuery($dbc, $queryt);
 		
@@ -108,9 +122,9 @@ include ('database/dbconn.php');
 						Local Address: $address <br>
 					</td>
 					<td>
-						$school
+						$school <br>
 						Major: $major <br>
-						Subjects to teach: $subject <br>
+						Subjects: $subject <br>
 					</td>
 					<td>
 						<br>Availability: <br>
@@ -126,13 +140,13 @@ include ('database/dbconn.php');
 			
 			echo "</table>";
 			
-			mysqli_free_result($resultT);
+			disconnectFromDB($dbc, $resultT);
 		}
 	}
 	
 function tutorprofile(){
 	$dbc = connectToDB('kimbxn'); 
-	$query = "SELECT * FROM tutorlist WHERE email = '$_POST[email]'";
+	$query = "SELECT * FROM tutorlist WHERE email = '$_COOKIE[email]'";
 	
 	$result = performQuery($dbc, $query); 
 	
@@ -159,9 +173,16 @@ function tutorprofile(){
 		  
 	mysqli_free_result($result);
 	
-	echo "Student List <br><br> \n\n"
+	echo "<h2>Student List</h2> \n\n";
 ?>
 
+<form method = "post">
+	<input type = "text" name = 'searchbox' value = "">
+	<input type = "submit" name = "searchsubmit" value = "Search Students">
+</form>
+	
+	<br><br>
+	
 	<table>
 		<tr>
 			<th> Name and Contact info</th>
@@ -172,7 +193,14 @@ function tutorprofile(){
 		
 <?php
 	
-	$querys= "SELECT * FROM studentlist";
+	$search = isset($_POST['searchbox']) ?$_POST['searchbox'] : "";
+	
+	if ($search ==""){
+		$querys= "SELECT * FROM studentlist";
+	}
+	else{
+		$querys = "SELECT * FROM studentlist WHERE name LIKE '%$search%'";
+	}
 	
 	$resultS = performQuery ($dbc, $querys);
 	
@@ -210,9 +238,9 @@ function tutorprofile(){
 						Local Address: $address <br>
 					</td>
 					<td>
-						$school
+						$school <br>
 						Major: $major <br>
-						Subjects to teach: $subject <br>
+						Subjects: $subject <br>
 					</td>
 					<td>
 						<br>Availability: <br>
@@ -228,7 +256,7 @@ function tutorprofile(){
 			
 			echo "</table>";
 			
-			mysqli_free_result($resultS);
+			disconnectFromDB($dbc, $resultS);
 	}
 }
 

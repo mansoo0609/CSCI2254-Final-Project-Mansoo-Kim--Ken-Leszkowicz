@@ -62,7 +62,7 @@
 	function selectaccounttype() {
 ?>
 		<fieldset>
-			<form method='get' onsubmit='return validatetype();'>
+			<form method='get' onsubmit='return validatetype();' name='form'>
 				<label class="floatleft">Select Account Type:</label>
 					<input type="radio" name="accounttype" value="student" /> Student
 					<input type="radio" name="accounttype" value="tutor" /> Tutor
@@ -76,13 +76,20 @@
 	function loginpage() {
 ?>	
 		<fieldset> 
-		<form method = "post" action ='login.php'>
-			<h3>Are You a Student or a Tutor?</h3>
-			Student <input type = "radio" name = "type" value = "student">
-			Tutor <input type = "radio" name = "type" value = "tutor"> <br><br>
+		<form method = "post" onsubmit='return validatelogin();' action ='login.php' name='form'>
 			
-			<label style="width: 100px; display: inline-block;">Email: </label><input type = "text" name = "email" value = ""> <br>
-			<label style="width: 100px; display: inline-block;">Password: </label><input type = "password" name = "password" value = ""> <br>
+			<label class="floatleft">Select Account Type:</label>
+				<input type="radio" name="accounttype" value="student" /> Student
+				<input type="radio" name="accounttype" value="tutor" /> Tutor
+				<label class="floatright" id="accounttypeerror">  </label> <br>
+			
+			<label class='floatleft'>Email:</label>
+				<input type = "text" name = "email" id='enteredemail'>
+				<label class="floatright" id="emailerror"></label> <br>
+			<label class='floatleft'>Password:</label>
+				<input type = "password" name = "password" id='enteredpassword'>
+				<label class ="floatright" id="passworderror"></label> <br>	
+				
 			<input type='submit' name='login' value='Sign In' />
 		</form>
 		</fieldset>

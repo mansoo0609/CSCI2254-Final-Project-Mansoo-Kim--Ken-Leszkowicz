@@ -2,7 +2,7 @@
 
 	include ('database/dbconn.php');
 	
-	$type = $_POST['type'];
+	$type = $_POST['accounttype'];
 	
 	if ( $type == 'student' ) {
 		$list = 'studentlist';
@@ -13,12 +13,38 @@
 	$newemail = $_POST['email'];
 	$password = $_POST['password'];
 	if ( !checkemail( $list, $newemail ) ) {
-		echo "The email $newemail was not found in the $type database.<br>\n
-		<a href = 'index.php?login=Login+with+your+ID'> Try Again! </a> \n";
+		echo "
+		<!DOCTYPE html>\n
+		<html lang='en'>\n
+		<head>\n
+			<meta charset='utf-8' />\n
+			<title>Incorrect Email</title>\n
+			<link rel='stylesheet' type='text/css' href='css/style.css'>\n
+		</head>\n
+		<body>\n
+		The email $newemail was not found in the $type database.<br>\n
+		<a href = 'index.php?login=Login+with+your+ID'> Try Again! </a> \n
+		</body>\n
+		</html>\n
+		";
 	} else if ( !checkpassword ( $list, $password, $newemail ) ) {
-		echo "Your password was incorrect.<br>\n
-		<a href = 'index.php?login=Login+with+your+ID'> Try Again! </a> \n";
+		echo "
+		<!DOCTYPE html>\n
+		<html lang='en'>\n
+		<head>\n
+			<meta charset='utf-8' />\n
+			<title>Incorrect Password</title>\n
+			<link rel='stylesheet' type='text/css' href='css/style.css'>\n
+		</head>\n
+		<body>\n
+		Your password was incorrect.<br>\n
+		<a href = 'index.php?login=Login+with+your+ID'> Try Again! </a> \n
+		</body>\n
+		</html>\n
+		";
 	} else {
+		setcookie('email', $newemail);
+		setcookie('type', $type );
 		header ( 'Location: profile.php' );
 	}
 
