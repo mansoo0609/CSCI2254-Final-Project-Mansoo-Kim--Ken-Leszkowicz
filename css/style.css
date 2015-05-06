@@ -8,6 +8,12 @@ h1,h2 {
 	color: #A3D1FF;
 }
 
+.floatprofile{
+	display: inline-block;
+	text-align: left;
+	width: 800px;
+}
+
 .floattable{
 	display: inline-block; 
 	text-align: left; 
@@ -18,6 +24,15 @@ h1,h2 {
 	display: inline-block; 
 	text-align: left; 
 	width: 150px;
+}
+
+.floatchat {
+	display: inline-block;
+	text-align: left;
+	float: right;
+	overflow: scroll;
+	height: 19em;
+	width: 20em;
 }
 
 .floatright { 
