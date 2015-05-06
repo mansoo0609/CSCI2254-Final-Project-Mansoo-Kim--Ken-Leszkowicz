@@ -6,6 +6,8 @@
 	<meta charset="utf-8" />
 	<title>Boston College Tutoring Service</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel='stylesheet' type ='text/css' href='css/bootstrap.css'>
+	<link rel='stylesheet' type = 'text/css' href='css/bootsrap-theme.css'>
 	<script type="text/javascript" src="js/javascript.js"></script>
 </head>
 
@@ -47,15 +49,16 @@
 <?php
 	function welcomepage() {
 ?>
+	<div class="jumbotron">
 	<form method = "get">
 		<h1> Welcome to BC's Tutoring Service! </h1>
 		
-		<h2> We proudly announce the launch of a new website where BC tutors could meet BC students easily and efficiently! </h2>
+		<div class="alert alert-success" role="alert">We proudly announce the launch of a new website where BC tutors could meet BC students easily and efficiently! </div>
 		
-		<input type = "submit" name = "login" value = "Login with your Email" > <br>
-		<input type = "submit" name = "signup" value = "Make a New Account" >
+		<input class="btn btn-primary btn-lg" type = "submit" name = "login" value = "Login with your Email" > <br><br>
+		<input class="btn btn-primary btn-lg" type = "submit" name = "signup" value = "Make a New Account" >
 	</form> 
-	
+	</div>
 <?php
 	}
 	
