@@ -11,7 +11,7 @@ h1,h2 {
 .floatprofile{
 	display: inline-block;
 	text-align: left;
-	width: 800px;
+	width: 850px;
 }
 
 .floattable{
@@ -31,7 +31,7 @@ h1,h2 {
 	text-align: left;
 	float: right;
 	overflow: scroll;
-	height: 19em;
+	height: 23em;
 	width: 20em;
 }
 
@@ -40,13 +40,6 @@ h1,h2 {
 	text-align: left; 
 	float: right;
 	width: 500px; 
-}
-
-.floatright2 { 
-	display: inline-block; 
-	text-align: left; 
-	float: right;
-	width: 200x; 
 }
 
 .floatemail {
