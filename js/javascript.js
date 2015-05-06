@@ -12,7 +12,7 @@ function validatestudentsignup() {
 	var subjectsvalid = validatesubjects();
 	var availibilityvalid = validateavailability();
 	var commentvalid = validatecomment();
-	if ( namevalid && gendervalid && emailvalid && passwordvalid && addressvalid && majorvalid && schoolvalid && subjectsvalid && availibilityvalid && commentvalid ) {
+	if ( namevalid && gendervalid && emailvalid && passwordvalid && phonevalid && addressvalid && majorvalid && schoolvalid && subjectsvalid && availibilityvalid && commentvalid ) {
 		return true;
 	}
 	return false;
