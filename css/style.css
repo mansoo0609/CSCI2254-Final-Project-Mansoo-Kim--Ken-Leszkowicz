@@ -9,15 +9,15 @@ h1,h2 {
 }
 
 .floatprofile{
-	display: inline-block;
 	text-align: left;
-	width: 850px;
+	width: 800px;
+	border: none;
 }
 
 .floattable{
 	display: inline-block; 
 	text-align: left; 
-	width: 900px;
+	width: 850px;
 }
 
 .floatleft { 
@@ -27,13 +27,19 @@ h1,h2 {
 }
 
 .floatchat {
-	display: inline-block;
 	text-align: left;
 	float: right;
 	overflow: scroll;
 	height: 23em;
 	width: 20em;
 }
+
+.floatlist {
+	text-align:left;
+	margin-left: 0px;
+	width: 1200px;
+	border:none;
+	}
 
 .floatright { 
 	display: inline-block; 
@@ -58,10 +64,6 @@ h1,h2 {
 
 fieldset {
 	float: left;
-}
-
-.profile{
-	float: none;
 }
 
 table,th,tr,td{

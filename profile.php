@@ -50,7 +50,8 @@ include ('database/dbconn.php');
 			$comments = $row['comments'];
 		}
 			  
-		echo "<fieldset class = 'floatprofile'><h1>Student Profile</h1><h1 id= 'profile'>$name</h1> \n";
+		echo "<fieldset class= 'floatlist'>
+			  <fieldset class = 'floatprofile'><h1>Student Profile</h1><h1 id= 'profile'>$name</h1> \n";
 ?>
 		
 			<table>
@@ -115,12 +116,12 @@ PUBNUB.bind( 'keyup', input, function(e) {
 })()</script>
 
 </fieldset> <br><br><br><br>
+</fieldset>
 
 <?php		
 		mysqli_free_result($result);
 		
-		echo "<br><br><br><br><br><br><br>\n\n
-			  <br><br><br><br><br><br><h2>Tutor List</h2> \n\n";
+		echo "<fieldset class = 'floatlist'><h2>Tutor List</h2> \n\n";
 		
 ?>
 
@@ -247,6 +248,8 @@ PUBNUB.bind( 'keyup', input, function(e) {
 	</fieldset>
 	
 	</form>
+
+</fieldset>
 <?php
 }
 	
