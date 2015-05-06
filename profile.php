@@ -265,12 +265,13 @@ function tutorprofile(){
 			$major = $row['major'];
 			$grade = $row['grade'];
 			$school = $row['school'];
+			$school = htmlentities($school);
 			$subject = $row['subjects'];
 			$avail = $row['availability'];
 			$comments = $row['comments'];
 		}
 
-	echo "<fieldset class = 'floatprofile'><h1> Tutor Profile</h1> <h1 id = 'profile'>$name </h1>\n";
+	echo "<fieldset class = 'floatprofile'><h1>Tutor Profile</h1><h1 id= 'profile'>$name</h1> \n";
 ?>
 
 			<table>
