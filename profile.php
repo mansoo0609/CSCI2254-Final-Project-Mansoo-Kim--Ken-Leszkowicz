@@ -269,7 +269,7 @@ function tutorprofile(){
 			$comments = $row['comments'];
 		}
 
-	echo "<h1>Tutor Profile: $name </h1>\n";
+	echo "<fieldset class = 'floatprofile'><h1>Tutor Profile: $name </h1>\n";
 ?>
 
 			<table>
@@ -309,13 +309,40 @@ function tutorprofile(){
 			  <br>\n
 			  <form action='logout.php'>\n
 			  <input type='submit' name='logout' value='Sign Out' />\n
-			  </form>\n
+			  </form>";
 			  
-			  <br><br>\n\n" ;
+?>
+
+</fieldset>
+
+<fieldset class = "floatchat">
+Enter Chat and press enter
+<div><input id=input placeholder=you-chat-here /></div>
+
+Chat Output
+<div id=box></div>
+
+<script src=http://cdn.pubnub.com/pubnub.min.js></script>
+<script>(function(){
+var box = PUBNUB.$('box'), input = PUBNUB.$('input'), channel = 'chat';
+PUBNUB.subscribe({
+    channel  : channel,
+    callback : function(text) { box.innerHTML = (''+text).replace( /[<>]/g, '' ) + '<br>' + box.innerHTML }
+});
+PUBNUB.bind( 'keyup', input, function(e) {
+    (e.keyCode || e.charCode) === 13 && PUBNUB.publish({
+        channel : channel, message : input.value, x : (input.value='')
+    })
+} )
+})()</script>
+
+</fieldset> <br><br><br><br><br><br>
+
+<?php
 		  
 	mysqli_free_result($result);
 	
-	echo "<h2>Student List</h2> \n\n";
+	echo "<br><h2>Student List</h2> \n\n";
 ?>
 
 <form method = "post">
