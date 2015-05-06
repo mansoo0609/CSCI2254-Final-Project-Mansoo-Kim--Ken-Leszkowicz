@@ -51,7 +51,7 @@ include ('database/dbconn.php');
 		}
 			  
 		echo "<div class= 'row'>
-			  <div class = 'col-md-8'><h1>Student Profile</h1><h1 id= 'profile'>$name</h1> \n";
+			  <div class = 'col-md-8'><h3 id = 'type'>Student</h3><h1 id= 'profile'>$name</h1> \n";
 ?>
 		
 			<table>
@@ -104,14 +104,14 @@ Chat Output
 
 <script src=http://cdn.pubnub.com/pubnub.min.js></script>
 <script>(function(){
-var box = PUBNUB.$('box'), input = PUBNUB.$('input'), channel = 'chat';
+var box = PUBNUB.$('box'), input = PUBNUB.$('input'), channel = 'finalprojmk';
 PUBNUB.subscribe({
     channel  : channel,
     callback : function(text) { box.innerHTML = (''+text).replace( /[<>]/g, '' ) + '<br>' + box.innerHTML }
 });
 PUBNUB.bind( 'keyup', input, function(e) {
     (e.keyCode || e.charCode) === 13 && PUBNUB.publish({
-        channel : channel, message : (document.getElementById('profile').innerHTML + ': ' + input.value), x : (input.value='')
+        channel : channel, message : (document.getElementById('profile').innerHTML + '(' + document.getElementById('type').innerHTML + '): '  + input.value), x : (input.value='')
     })
 } )
 })()</script>
@@ -276,7 +276,7 @@ function tutorprofile(){
 		}
 
 	echo "<div class = 'row'>
-		  <div class = 'col-md-8'><h1>Tutor Profile</h1><h1 id= 'profile'>$name</h1> \n";
+		  <div class = 'col-md-8'><h3 id='type'>Tutor</h3><h1 id= 'profile'>$name</h1> \n";
 ?>
 
 			<table>
@@ -332,14 +332,14 @@ Chat Output
 
 <script src=http://cdn.pubnub.com/pubnub.min.js></script>
 <script>(function(){
-var box = PUBNUB.$('box'), input = PUBNUB.$('input'), channel = 'chat';
+var box = PUBNUB.$('box'), input = PUBNUB.$('input'), channel = 'finalprojmk';
 PUBNUB.subscribe({
     channel  : channel,
     callback : function(text) { box.innerHTML = (''+text).replace( /[<>]/g, '' ) + '<br>' + box.innerHTML }
 });
 PUBNUB.bind( 'keyup', input, function(e) {
     (e.keyCode || e.charCode) === 13 && PUBNUB.publish({
-        channel : channel, message : (document.getElementById('profile').innerHTML + ': ' + input.value), x : (input.value='')
+        channel : channel, message : (document.getElementById('profile').innerHTML + '(' + document.getElementById('type').innerHTML + '): ' + input.value), x : (input.value='')
     })
 } )
 })()</script>
