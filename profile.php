@@ -50,8 +50,8 @@ include ('database/dbconn.php');
 			$comments = $row['comments'];
 		}
 			  
-		echo "<fieldset class= 'floatlist'>
-			  <fieldset class = 'floatprofile'><h1>Student Profile</h1><h1 id= 'profile'>$name</h1> \n";
+		echo "<div class= 'row'>
+			  <div class = 'col-md-8'><h1>Student Profile</h1><h1 id= 'profile'>$name</h1> \n";
 ?>
 		
 			<table>
@@ -92,9 +92,10 @@ include ('database/dbconn.php');
 			  <input type='submit' name='logout' value='Sign Out' />\n
 			  </form>\n";
 ?>
-</fieldset>
+</div>
 
-<fieldset class = "floatchat">
+<div class = "col-md-4">
+<h4> Chat with anyone that is online now! </h4>
 Enter Chat and press enter
 <div><input id=input placeholder=you-chat-here /></div>
 
@@ -115,13 +116,13 @@ PUBNUB.bind( 'keyup', input, function(e) {
 } )
 })()</script>
 
-</fieldset> <br><br><br><br>
-</fieldset>
+</div> <br><br><br><br>
+</div>
 
 <?php		
 		mysqli_free_result($result);
 		
-		echo "<fieldset class = 'floatlist'><h2>Tutor List</h2> \n\n";
+		echo "<br><div class = 'row'><h2>Tutor List</h2> \n\n";
 		
 ?>
 
@@ -142,7 +143,7 @@ PUBNUB.bind( 'keyup', input, function(e) {
 
 <form method = "post" action = "email.php" onsubmit='return validatesend();'>
 	<br><br>
-	<table class = "floattable">
+	<table class = "col-md-8">
 		<tr>
 			<th>Name and Contact info</th>
 			<th>School, Major, Subjects </th>
@@ -233,7 +234,7 @@ PUBNUB.bind( 'keyup', input, function(e) {
 			disconnectFromDB($dbc, $resultT);
 		}
 ?>
-	<fieldset class = "floatemail">
+	<div class = "col-md-4">
 	Write Emails to the Selected Tutors
 	<br><br>
 	<label class = "floatleft"> Subject: </label> 
@@ -245,11 +246,11 @@ PUBNUB.bind( 'keyup', input, function(e) {
 		<label class="floatright2" id="checkerror"></label>
 	<br>
 	<input type = "submit" name = "email" value = "Send Emails to Selected Tutors">
-	</fieldset>
+	</div>
 	
 	</form>
 
-</fieldset>
+</div>
 <?php
 }
 	
@@ -274,7 +275,8 @@ function tutorprofile(){
 			$comments = $row['comments'];
 		}
 
-	echo "<fieldset class = 'floatprofile'><h1>Tutor Profile</h1><h1 id= 'profile'>$name</h1> \n";
+	echo "<div class = 'row'>
+		  <div class = 'col-md-8'><h1>Tutor Profile</h1><h1 id= 'profile'>$name</h1> \n";
 ?>
 
 			<table>
@@ -318,9 +320,10 @@ function tutorprofile(){
 			  
 ?>
 
-</fieldset>
+</div>
 
-<fieldset class = "floatchat">
+<div class = "col-md-4">
+<h4> Chat with anyone that is online now! </h4>
 Enter Chat and press enter
 <div><input id=input placeholder=you-chat-here /></div>
 
@@ -341,13 +344,15 @@ PUBNUB.bind( 'keyup', input, function(e) {
 } )
 })()</script>
 
-</fieldset> <br><br><br><br><br><br>
+</div>
+</div>
 
+<div class = 'row'>
 <?php
 		  
 	mysqli_free_result($result);
 	
-	echo "<br><h2>Student List</h2> \n\n";
+	echo "<div class = 'col-md-8'><h2>Student List</h2> \n\n";
 ?>
 
 <form method = "post">
@@ -457,7 +462,8 @@ PUBNUB.bind( 'keyup', input, function(e) {
 			disconnectFromDB($dbc, $resultS);
 	}
 ?>
-	<fieldset class = "floatemail">
+	</div>
+	<div class = "col-md-4">
 	Write Emails to the Selected Students
 	<br><br>
 	<label class = "floatleft"> Subject: </label> 
@@ -472,6 +478,7 @@ PUBNUB.bind( 'keyup', input, function(e) {
 	</fieldset>
 	
 	</form>
+</div>
 <?php
 }
 
