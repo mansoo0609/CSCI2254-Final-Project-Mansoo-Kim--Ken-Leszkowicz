@@ -10,7 +10,7 @@ include ('database/dbconn.php');
 	<meta charset="utf-8" />
 	<title>Your Profile</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="js/javascript.js"></script>
 </head>
 
 <body>
@@ -139,7 +139,7 @@ PUBNUB.bind( 'keyup', input, function(e) {
 	</select>
 </form>	
 
-<form method = "post" action = "email.php" onsubmit='return false;'>
+<form method = "post" action = "email.php" onsubmit='return validatesend();'>
 	<br><br>
 	<table class = "floattable">
 		<tr>
@@ -233,14 +233,16 @@ PUBNUB.bind( 'keyup', input, function(e) {
 		}
 ?>
 	<fieldset class = "floatemail">
-	Write Emails to the selected students
+	Write Emails to the Selected Tutors
 	<br><br>
 	<label class = "floatleft"> Subject: </label> 
-		<input type ="text" name = "subj" value =""> <br>
-		<label class = "floatleft"> Body: </label><br>
-	<textarea name = "body" style="width : 270px; height : 120px"></textarea>
-	<br><br>
-	<input type = "submit" name = "email" value = "Send emails to selected Students">
+		<input type ="text" name = "subj" value ="" id="enteredsubject"><br>
+		<label class="floatright2" id="subjecterror"></label> <br>
+	<label class="floatleft">Body:</label><br>
+		<textarea name="body" id="enteredbody" style="width : 270px; height : 120px"></textarea><br>
+		<label class="floatright2" id="bodyerror"></label> <br>
+	<br>
+	<input type = "submit" name = "email" value = "Send Emails to Selected Tutors">
 	</fieldset>
 	
 	</form>
@@ -333,7 +335,7 @@ function tutorprofile(){
 	
 	<br><br>
 
-<form method = "post" action = "email.php">
+<form method = "post" action = "email.php" onsubmit='return validatesend();'>
 	<table class = "floattable">
 		<tr>
 			<th> Name and Contact info</th>
@@ -424,14 +426,16 @@ function tutorprofile(){
 	}
 ?>
 	<fieldset class = "floatemail">
-	Write Emails to the selected students
+	Write Emails to the Selected Students
 	<br><br>
 	<label class = "floatleft"> Subject: </label> 
-	<input type ="text" name = "subj" value =""> <br>
-	<label class = "floatleft"> Body: </label><br>
-	<textarea name = "body" style="width : 270px; height : 120px"></textarea>
-	<br><br>
-	<input type = "submit" name = "email" value = "Send emails to selected Students">
+		<input type ="text" name = "subj" value ="" id="enteredsubject"><br>
+		<label class="floatright2" id="subjecterror"></label> <br>
+	<label class="floatleft">Body:</label><br>
+		<textarea name="body" id="enteredbody" style="width : 270px; height : 120px"></textarea><br>
+		<label class="floatright2" id="bodyerror"></label> <br>
+	<br>
+	<input type = "submit" name = "email" value = "Send Emails to Selected Students">
 	</fieldset>
 	
 	</form>
