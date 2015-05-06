@@ -21,7 +21,7 @@
 ?>
 	<fieldset>
 		<legend>Edit Your <?php echo $type2 ?> Profile</legend>
-		<form method = "post" onsubmit="return validate<?php echo $type ?>signup();" action='dboperation.php' name='infoform'>
+		<form method = "post" onsubmit="return validate<?php echo $type ?>signup();" action='database/dboperation.php' name='infoform'>
 			
 			<label class="floatleft">Name:</label>
 				<input type="text" name="name" id="enteredname" />
