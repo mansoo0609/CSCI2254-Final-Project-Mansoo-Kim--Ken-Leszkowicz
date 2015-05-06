@@ -1,3 +1,5 @@
+// Validation for signup page and editing profile
+
 function validatestudentsignup() {
 	var namevalid = validatename();
 	var gendervalid = validategender();
@@ -191,7 +193,7 @@ function validatecomment() {
 }
 
 
-
+// Validation for login and choosing acount type at creation
 
 
 function validatetype() {
@@ -240,3 +242,54 @@ function validatepassword2() {
 	return true;
 }
                   
+				  
+// Validation for sending emails
+
+function validatesend() {
+	var subjectvalid = validatesubject();
+	var bodyvalid = validatebody();
+	var checkvalid = validatecheck();
+	
+	if ( subjectvalid && bodyvalid && checkvalid ) {
+		return true;
+	}
+	return false;
+}
+
+function validatesubject() {
+	var subject = document.getElementById("enteredsubject").value;
+	if  ( subject.trim() == "" ){
+		document.getElementById("subjecterror").innerHTML  = "<font color='red'>Please enter a subject.</font>";
+		return false;
+	}
+	document.getElementById("subjecterror").innerHTML  = '';
+	return true;
+}
+
+function validatebody() {
+	var body = document.getElementById("enteredbody").value;
+	if  ( body.trim() == "" ){
+		document.getElementById("bodyerror").innerHTML  = "<font color='red'>Please enter a body.</font>";
+		return false;
+	}
+	document.getElementById("bodyerror").innerHTML  = '';
+	return true;
+}
+
+function validatecheck() {
+	var check = document.getElementsByName('checked[]');
+	var haschecked = false;
+	for ( var i = 0; i<check.length; i++ ) {
+		if ( check[i].checked ) {
+			haschecked = true;
+			break;
+		}
+	}
+	
+	if ( haschecked == true ) {
+		document.getElementById('checkerror').innerHTML = '';
+		return true;
+	}
+	document.getElementById('checkerror').innerHTML = "<font color='red'>Please check recipients.</font>"; 
+	return false;
+}

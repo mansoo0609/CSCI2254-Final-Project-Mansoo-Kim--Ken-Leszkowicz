@@ -10,7 +10,7 @@ include ('database/dbconn.php');
 	<meta charset="utf-8" />
 	<title>Your Profile</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="js/javascript.js"></script>
 </head>
 
 <body>
@@ -50,7 +50,7 @@ include ('database/dbconn.php');
 			$comments = $row['comments'];
 		}
 			  
-		echo "<fieldset class = 'floatprofile'><h1>Student Profile: $name</h1> \n";
+		echo "<fieldset class = 'floatprofile'><h1>Student Profile</h1><h1 id= 'profile'>$name</h1> \n";
 ?>
 		
 			<table>
@@ -109,7 +109,7 @@ PUBNUB.subscribe({
 });
 PUBNUB.bind( 'keyup', input, function(e) {
     (e.keyCode || e.charCode) === 13 && PUBNUB.publish({
-        channel : channel, message : input.value, x : (input.value='')
+        channel : channel, message : (document.getElementById('profile').innerHTML + ': ' + input.value), x : (input.value='')
     })
 } )
 })()</script>
@@ -139,7 +139,7 @@ PUBNUB.bind( 'keyup', input, function(e) {
 	</select>
 </form>	
 
-<form method = "post" action = "email.php" onsubmit='return false;'>
+<form method = "post" action = "email.php" onsubmit='return validatesend();'>
 	<br><br>
 	<table class = "floattable">
 		<tr>
@@ -222,7 +222,7 @@ PUBNUB.bind( 'keyup', input, function(e) {
 						$comments
 					</td>
 					<td>
-						<input type = 'checkbox' name = 'Tchecked[]' value = '$email'>
+						<input type = 'checkbox' name = 'checked[]' value = '$email'>
 					</td>
 				</tr>";
 			}
@@ -233,14 +233,17 @@ PUBNUB.bind( 'keyup', input, function(e) {
 		}
 ?>
 	<fieldset class = "floatemail">
-	Write Emails to the selected students
+	Write Emails to the Selected Tutors
 	<br><br>
 	<label class = "floatleft"> Subject: </label> 
-		<input type ="text" name = "subj" value =""> <br>
-		<label class = "floatleft"> Body: </label><br>
-	<textarea name = "body" style="width : 270px; height : 120px"></textarea>
-	<br><br>
-	<input type = "submit" name = "email" value = "Send emails to selected Students">
+		<input type ="text" name = "subj" value ="" id="enteredsubject"><br>
+		<label class="floatright2" id="subjecterror"></label> <br>
+	<label class="floatleft">Body:</label><br>
+		<textarea name="body" id="enteredbody" style="width : 270px; height : 120px"></textarea><br>
+		<label class="floatright2" id="bodyerror"></label> <br>
+		<label class="floatright2" id="checkerror"></label>
+	<br>
+	<input type = "submit" name = "email" value = "Send Emails to Selected Tutors">
 	</fieldset>
 	
 	</form>
@@ -267,7 +270,7 @@ function tutorprofile(){
 			$comments = $row['comments'];
 		}
 
-	echo "<h1>Tutor Profile: $name </h1>\n";
+	echo "<fieldset class = 'floatprofile'><h1> Tutor Profile</h1> <h1 id = 'profile'>$name </h1>\n";
 ?>
 
 			<table>
@@ -307,13 +310,40 @@ function tutorprofile(){
 			  <br>\n
 			  <form action='logout.php'>\n
 			  <input type='submit' name='logout' value='Sign Out' />\n
-			  </form>\n
+			  </form>";
 			  
-			  <br><br>\n\n" ;
+?>
+
+</fieldset>
+
+<fieldset class = "floatchat">
+Enter Chat and press enter
+<div><input id=input placeholder=you-chat-here /></div>
+
+Chat Output
+<div id=box></div>
+
+<script src=http://cdn.pubnub.com/pubnub.min.js></script>
+<script>(function(){
+var box = PUBNUB.$('box'), input = PUBNUB.$('input'), channel = 'chat';
+PUBNUB.subscribe({
+    channel  : channel,
+    callback : function(text) { box.innerHTML = (''+text).replace( /[<>]/g, '' ) + '<br>' + box.innerHTML }
+});
+PUBNUB.bind( 'keyup', input, function(e) {
+    (e.keyCode || e.charCode) === 13 && PUBNUB.publish({
+        channel : channel, message : (document.getElementById('profile').innerHTML + ': ' + input.value), x : (input.value='')
+    })
+} )
+})()</script>
+
+</fieldset> <br><br><br><br><br><br>
+
+<?php
 		  
 	mysqli_free_result($result);
 	
-	echo "<h2>Student List</h2> \n\n";
+	echo "<br><h2>Student List</h2> \n\n";
 ?>
 
 <form method = "post">
@@ -333,7 +363,7 @@ function tutorprofile(){
 	
 	<br><br>
 
-<form method = "post" action = "email.php">
+<form method = "post" action = "email.php" onsubmit='return validatesend();'>
 	<table class = "floattable">
 		<tr>
 			<th> Name and Contact info</th>
@@ -413,7 +443,7 @@ function tutorprofile(){
 						$comments
 					</td>
 					<td>
-						<input type = 'checkbox' name = 'Schecked[]' value = '$email'>
+						<input type = 'checkbox' name = 'checked[]' value = '$email'>
 					</td>
 				</tr>";
 			}
@@ -424,14 +454,17 @@ function tutorprofile(){
 	}
 ?>
 	<fieldset class = "floatemail">
-	Write Emails to the selected students
+	Write Emails to the Selected Students
 	<br><br>
 	<label class = "floatleft"> Subject: </label> 
-	<input type ="text" name = "subj" value =""> <br>
-	<label class = "floatleft"> Body: </label><br>
-	<textarea name = "body" style="width : 270px; height : 120px"></textarea>
-	<br><br>
-	<input type = "submit" name = "email" value = "Send emails to selected Students">
+		<input type ="text" name = "subj" value ="" id="enteredsubject"><br>
+		<label class="floatright2" id="subjecterror"></label> <br>
+	<label class="floatleft">Body:</label><br>
+		<textarea name="body" id="enteredbody" style="width : 270px; height : 120px"></textarea><br>
+		<label class="floatright2" id="bodyerror"></label> <br>
+		<label class="floatright2" id="checkerror"></label>
+	<br>
+	<input type = "submit" name = "email" value = "Send Emails to Selected Students">
 	</fieldset>
 	
 	</form>

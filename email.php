@@ -16,12 +16,8 @@ include ('database/dbconn.php');
 <body>
 <?php
 	$self = $_COOKIE['email'];
-	if(isset($_POST['Tchecked'])){
-		sendmail($_POST['Tchecked'], $self);
-	}
-	else{
-		sendmail($_POST['Schecked'], $self);
-	}
+	sendmail($_POST['checked'], $self);
+
 ?>
 	<br><br>
 	<a href = 'profile.php'> Go Back to your Profile </a>
@@ -31,7 +27,7 @@ function sendmail($emails, $self){
 	
 	$email = implode(", ", $emails);
 	
-	echo "Mail was sent to $email";
+	echo "Email was sent to $email";
 	
 	foreach($emails as $check) {
 		$to = "$check";
