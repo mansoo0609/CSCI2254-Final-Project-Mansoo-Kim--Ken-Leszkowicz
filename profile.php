@@ -50,7 +50,7 @@ include ('database/dbconn.php');
 			$comments = $row['comments'];
 		}
 			  
-		echo "<fieldset class = 'floatprofile'><h1>Student Profile: $name</h1> \n";
+		echo "<fieldset class = 'floatprofile'><h1>Student Profile</h1><h1 id= 'profile'>$name</h1> \n";
 ?>
 		
 			<table>
@@ -109,7 +109,7 @@ PUBNUB.subscribe({
 });
 PUBNUB.bind( 'keyup', input, function(e) {
     (e.keyCode || e.charCode) === 13 && PUBNUB.publish({
-        channel : channel, message : input.value, x : (input.value='')
+        channel : channel, message : (document.getElementById('profile').innerHTML + ': ' + input.value), x : (input.value='')
     })
 } )
 })()</script>
@@ -269,7 +269,7 @@ function tutorprofile(){
 			$comments = $row['comments'];
 		}
 
-	echo "<fieldset class = 'floatprofile'><h1>Tutor Profile: $name </h1>\n";
+	echo "<fieldset class = 'floatprofile'><h1> Tutor Profile</h1> <h1 id = 'profile'>$name </h1>\n";
 ?>
 
 			<table>
@@ -331,7 +331,7 @@ PUBNUB.subscribe({
 });
 PUBNUB.bind( 'keyup', input, function(e) {
     (e.keyCode || e.charCode) === 13 && PUBNUB.publish({
-        channel : channel, message : input.value, x : (input.value='')
+        channel : channel, message : (document.getElementById('profile').innerHTML + ': ' + input.value), x : (input.value='')
     })
 } )
 })()</script>
