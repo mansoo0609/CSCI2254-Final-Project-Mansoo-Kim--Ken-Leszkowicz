@@ -118,17 +118,19 @@ PUBNUB.bind( 'keyup', input, function(e) {
 } )
 })()</script>
 
-</div> <br><br><br><br>
+</div>
 </div>
 
+<div class='row'>
+	<div class='col-md-8'>
 <?php		
 		mysqli_free_result($result);
 		
-		echo "<br><div class = 'row'><h2>Tutor List</h2> \n\n";
+		echo "<form method = 'post'><h2>Tutor List</h2> \n\n";
 		
 ?>
 
-<form method = "post">
+
 	<input type = "text" name = 'searchbox' value = "">
 	<input type = "submit" name = "searchsubmit" value = "Search Tutors">
 	Search By:<select name ="selecttype">
@@ -141,10 +143,11 @@ PUBNUB.bind( 'keyup', input, function(e) {
 		<option value = "subjects">Subjects</option>
 		<option value = "availability">Availability</option>
 	</select>
+
 </form>	
 
+<br><br>
 <form method = "post" action = "email.php" onsubmit='return validatesend();'>
-	<br><br>
 	<table class = "col-md-8">
 		<tr>
 			<th>Name and Contact info</th>
@@ -236,7 +239,8 @@ PUBNUB.bind( 'keyup', input, function(e) {
 			disconnectFromDB($dbc, $resultT);
 		}
 ?>
-	<div class = "col-md-4">
+	</div>
+	<div class = "col-md-42">
 	Write Emails to the Selected Tutors
 	<br><br>
 	<label class = "floatleft"> Subject: </label> 
@@ -350,14 +354,14 @@ PUBNUB.bind( 'keyup', input, function(e) {
 </div>
 
 <div class = 'row'>
+	<div class='col-md-8'>
 <?php
 		  
 	mysqli_free_result($result);
 	
-	echo "<div class = 'col-md-8'><h2>Student List</h2> \n\n";
+	echo "<form method = 'post'><h2>Student List</h2> \n\n";
 ?>
 
-<form method = "post">
 	<input type = "text" name = 'searchbox' value = "">
 	<input type = "submit" name = "searchsubmit" value = "Search Students">
 	Search By:<select name ="selecttype">
@@ -370,7 +374,8 @@ PUBNUB.bind( 'keyup', input, function(e) {
 		<option value = "subjects">Subjects</option>
 		<option value = "availability">Availability</option>
 	</select>
-</form>
+
+	</form>
 	
 	<br><br>
 
@@ -465,7 +470,7 @@ PUBNUB.bind( 'keyup', input, function(e) {
 	}
 ?>
 	</div>
-	<div class = "col-md-4">
+	<div class = "col-md-42">
 	Write Emails to the Selected Students
 	<br><br>
 	<label class = "floatleft"> Subject: </label> 
@@ -477,8 +482,7 @@ PUBNUB.bind( 'keyup', input, function(e) {
 		<label class="floatright2" id="checkerror"></label>
 	<br>
 	<input type = "submit" name = "email" value = "Send Emails to Selected Students">
-	</fieldset>
-	
+	</div>
 	</form>
 </div>
 <?php
