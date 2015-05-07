@@ -148,7 +148,8 @@ PUBNUB.bind( 'keyup', input, function(e) {
 
 <br><br>
 <form method = "post" action = "email.php" onsubmit='return validatesend();'>
-	<table class = "col-md-8">
+	<div class = "scroll">
+	<table class = "col-md-12">
 		<tr>
 			<th>Name and Contact info</th>
 			<th>School, Major, Subjects </th>
@@ -234,7 +235,7 @@ PUBNUB.bind( 'keyup', input, function(e) {
 				</tr>";
 			}
 			
-			echo "</table>";
+			echo "</table></div>";
 			
 			disconnectFromDB($dbc, $resultT);
 		}
@@ -256,6 +257,7 @@ PUBNUB.bind( 'keyup', input, function(e) {
 	
 	</form>
 
+</div>
 </div>
 <?php
 }
@@ -380,7 +382,8 @@ PUBNUB.bind( 'keyup', input, function(e) {
 	<br><br>
 
 <form method = "post" action = "email.php" onsubmit='return validatesend();'>
-	<table class = "floattable">
+	<div class = "scroll">
+	<table class = "col-md-12">
 		<tr>
 			<th> Name and Contact info</th>
 			<th> School, Major, Subjects </th>
@@ -464,7 +467,7 @@ PUBNUB.bind( 'keyup', input, function(e) {
 				</tr>";
 			}
 			
-			echo "</table>";
+			echo "</table></div>";
 			
 			disconnectFromDB($dbc, $resultS);
 	}

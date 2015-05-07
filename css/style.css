@@ -14,6 +14,12 @@ h1,h2 {
 	border: none;
 }
 
+.scroll {
+	overflow: auto;
+	height: 30em;
+	width: 70em;
+}
+
 .floattable{
 	display: inline-block; 
 	text-align: left; 

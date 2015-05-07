@@ -23,7 +23,7 @@
 ?>
 	<fieldset>
 		<legend>Edit Your <?php echo $type2 ?> Profile</legend>
-		<form method = "post" onsubmit="return validate<?php echo $type ?>signup();" action='database/dboperation.php' name='infoform'>
+		<form method = "post" onsubmit="return validate<?php echo $type ?>edit();" action='database/dboperation.php' name='infoform'>
 			
 			<label class="floatleft">Name:</label>
 				<input type="text" name="name" id="enteredname" />
@@ -34,10 +34,6 @@
 				<input type="radio" name="gender" value='female' />Female
 				<input type="radio" name="gender" value='other' />Other
 				<label class="floatright" id="gendererror"></label> <br>
-			
-			<label class="floatleft">Email:</label>
-				<input type="text" name="email" id="enteredemail" />
-				<label class="floatright" id="emailerror"></label> <br>
 				
 			<label class="floatleft">Password:</label>
 				<input type="password" name="password1" id="password1" />
