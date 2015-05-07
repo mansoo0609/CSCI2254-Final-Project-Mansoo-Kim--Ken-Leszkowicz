@@ -20,6 +20,9 @@
 			<meta charset='utf-8' />\n
 			<title>Incorrect Email</title>\n
 			<link rel='stylesheet' type='text/css' href='css/style.css'>\n
+			<link rel='stylesheet' type='text/css' href='css/style.css'>
+			<link rel='stylesheet' type ='text/css' href='css/bootstrap.css'>
+			<link rel='stylesheet' type = 'text/css' href='css/bootsrap-theme.css'>
 		</head>\n
 		<body>\n
 		The email $newemail was not found in the $type database.<br>\n
@@ -35,6 +38,9 @@
 			<meta charset='utf-8' />\n
 			<title>Incorrect Password</title>\n
 			<link rel='stylesheet' type='text/css' href='css/style.css'>\n
+			<link rel='stylesheet' type='text/css' href='css/style.css'>
+			<link rel='stylesheet' type ='text/css' href='css/bootstrap.css'>
+			<link rel='stylesheet' type = 'text/css' href='css/bootsrap-theme.css'>
 		</head>\n
 		<body>\n
 		Your password was incorrect.<br>\n
