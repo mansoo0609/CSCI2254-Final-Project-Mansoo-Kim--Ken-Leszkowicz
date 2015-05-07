@@ -130,7 +130,7 @@ PUBNUB.bind( 'keyup', input, function(e) {
 
 <form method = "post">
 	<input type = "text" name = 'searchbox' value = "">
-	<input type = "submit" name = "searchsubmit" value = "Search Students">
+	<input type = "submit" name = "searchsubmit" value = "Search Tutors">
 	Search By:<select name ="selecttype">
 		<option value = "all"> All </option>
 		<option value = "name"> Name</option>
