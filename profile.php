@@ -122,7 +122,7 @@ PUBNUB.bind( 'keyup', input, function(e) {
 </div>
 
 <div class='row'>
-	<div class='col-md-8'>
+	<div class='col-md-12'>
 <?php		
 		mysqli_free_result($result);
 		
@@ -148,6 +148,7 @@ PUBNUB.bind( 'keyup', input, function(e) {
 
 <br><br>
 <form method = "post" action = "email.php" onsubmit='return validatesend();'>
+<div class='col-md-8'>
 	<div class = "scroll">
 	<table class = "col-md-12">
 		<tr>
@@ -356,7 +357,7 @@ PUBNUB.bind( 'keyup', input, function(e) {
 </div>
 
 <div class = 'row'>
-	<div class='col-md-8'>
+	<div class='col-md-12'>
 <?php
 		  
 	mysqli_free_result($result);
@@ -382,6 +383,7 @@ PUBNUB.bind( 'keyup', input, function(e) {
 	<br><br>
 
 <form method = "post" action = "email.php" onsubmit='return validatesend();'>
+	<div class='col-md-8'>
 	<div class = "scroll">
 	<table class = "col-md-12">
 		<tr>
@@ -487,7 +489,7 @@ PUBNUB.bind( 'keyup', input, function(e) {
 	<input type = "submit" name = "email" value = "Send Emails to Selected Students">
 	</div>
 	</form>
-</div>
+</div></div>
 <?php
 }
 
